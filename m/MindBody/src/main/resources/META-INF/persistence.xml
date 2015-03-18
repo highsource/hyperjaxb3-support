@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd
+http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <persistence-unit name="integration.mindbody"  transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+
+        <class>integration.mindbody.Appointment</class>
+        <class>integration.mindbody.ArrayOfAppointment</class>
+        <class>integration.mindbody.ArrayOfAvailability</class>
+        <class>integration.mindbody.ArrayOfClient</class>
+        <class>integration.mindbody.ArrayOfClientContract</class>
+        <class>integration.mindbody.ArrayOfClientIndex</class>
+        <class>integration.mindbody.ArrayOfClientIndexValue</class>
+        <class>integration.mindbody.ArrayOfClientMembership</class>
+        <class>integration.mindbody.ArrayOfClientRelationship</class>
+        <class>integration.mindbody.ArrayOfClientService</class>
+        <class>integration.mindbody.ArrayOfContactLog</class>
+        <class>integration.mindbody.ArrayOfContactLogComment</class>
+        <class>integration.mindbody.ArrayOfContactLogSubtype</class>
+        <class>integration.mindbody.ArrayOfContactLogType</class>
+        <class>integration.mindbody.ArrayOfCustomClientField</class>
+        <class>integration.mindbody.ArrayOfFormulaNote</class>
+        <class>integration.mindbody.ArrayOfInt</class>
+        <class>integration.mindbody.ArrayOfIntIntItem</class>
+        <class>integration.mindbody.ArrayOfLocation</class>
+        <class>integration.mindbody.ArrayOfLong</class>
+        <class>integration.mindbody.ArrayOfLongLongItem</class>
+        <class>integration.mindbody.ArrayOfPayment</class>
+        <class>integration.mindbody.ArrayOfProgram</class>
+        <class>integration.mindbody.ArrayOfRep</class>
+        <class>integration.mindbody.ArrayOfResource</class>
+        <class>integration.mindbody.ArrayOfSaleItem</class>
+        <class>integration.mindbody.ArrayOfString</class>
+        <class>integration.mindbody.ArrayOfStringStringItem</class>
+        <class>integration.mindbody.ArrayOfUnavailability</class>
+        <class>integration.mindbody.ArrayOfVisit</class>
+        <class>integration.mindbody.Availability</class>
+        <class>integration.mindbody.Client</class>
+        <class>integration.mindbody.ClientContract</class>
+        <class>integration.mindbody.ClientCreditCard</class>
+        <class>integration.mindbody.ClientIndex</class>
+        <class>integration.mindbody.ClientIndexValue</class>
+        <class>integration.mindbody.ClientMembership</class>
+        <class>integration.mindbody.ClientRelationship</class>
+        <class>integration.mindbody.ClientSendUserNewPasswordRequest</class>
+        <class>integration.mindbody.ClientSendUserNewPasswordResult</class>
+        <class>integration.mindbody.ClientService</class>
+        <class>integration.mindbody.ContactLog</class>
+        <class>integration.mindbody.ContactLogComment</class>
+        <class>integration.mindbody.ContactLogSubtype</class>
+        <class>integration.mindbody.ContactLogType</class>
+        <class>integration.mindbody.CustomClientField</class>
+        <class>integration.mindbody.FormulaNote</class>
+        <class>integration.mindbody.Location</class>
+        <class>integration.mindbody.MBObject</class>
+        <class>integration.mindbody.MBRequest</class>
+        <class>integration.mindbody.MBResult</class>
+        <class>integration.mindbody.Payment</class>
+        <class>integration.mindbody.Program</class>
+        <class>integration.mindbody.Relationship</class>
+        <class>integration.mindbody.Rep</class>
+        <class>integration.mindbody.Resource</class>
+        <class>integration.mindbody.Sale</class>
+        <class>integration.mindbody.SaleItem</class>
+        <class>integration.mindbody.ScheduleItem</class>
+        <class>integration.mindbody.SendUserNewPassword</class>
+        <class>integration.mindbody.SendUserNewPasswordResponse</class>
+        <class>integration.mindbody.SessionType</class>
+        <class>integration.mindbody.Site</class>
+        <class>integration.mindbody.SourceCredentials</class>
+        <class>integration.mindbody.Staff</class>
+        <class>integration.mindbody.Unavailability</class>
+        <class>integration.mindbody.UserCredentials</class>
+        <class>integration.mindbody.ValidateLogin</class>
+        <class>integration.mindbody.ValidateLoginRequest</class>
+        <class>integration.mindbody.ValidateLoginResponse</class>
+        <class>integration.mindbody.ValidateLoginResult</class>
+        <class>integration.mindbody.Visit</class>
+        <class>integration.mindbody.ArrayOfClass</class>
+        <class>integration.mindbody.ArrayOfClassDescription</class>
+        <class>integration.mindbody.ArrayOfClassSchedule</class>
+        <class>integration.mindbody.ArrayOfCourse</class>
+        <class>integration.mindbody.ArrayOfDateTime</class>
+        <class>integration.mindbody.ArrayOfDateTimeDateTimeItem</class>
+        <class>integration.mindbody.ArrayOfSemester</class>
+        <class>integration.mindbody.ArrayOfWaitlistEntry</class>
+        <class>integration.mindbody.Class</class>
+        <class>integration.mindbody.ClassDescription</class>
+        <class>integration.mindbody.ClassSchedule</class>
+        <class>integration.mindbody.Course</class>
+        <class>integration.mindbody.Level</class>
+        <class>integration.mindbody.Semester</class>
+        <class>integration.mindbody.WaitlistEntry</class>
+        <properties>
+            <property name="show_sql" value="true"/>
+            <property name="format_sql" value="true"/>
+            <property name="use_sql_comments" value="true"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/mindbody"/>
+            <property name="hibernate.connection.password" value="postgres"/>
+            <property name="hibernate.connection.username" value="postgres"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.id.new_generator_mappings" value="true"/>
+            <property name="hibernate.connection.characterEncoding" value="utf8" />
+            <property name="hibernate.connection.charSet" value="utf8" />
+        </properties>
+    </persistence-unit>
+
+</persistence>
