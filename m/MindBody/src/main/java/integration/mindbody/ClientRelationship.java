@@ -6,12 +6,17 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import org.jvnet.jaxb2_commons.lang.Equals;
@@ -55,7 +60,8 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "relationshipName"
 })
 @Entity(name = "ClientRelationship")
-@Table(name = "CLIENTRELATIONSHIP")
+@Table(name = "CLIENT_RELATIONSHIP")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ClientRelationship
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -68,6 +74,8 @@ public class ClientRelationship
     protected Relationship relationship;
     @XmlElement(name = "RelationshipName")
     protected String relationshipName;
+    @XmlAttribute(name = "Hjid")
+    protected Long hjid;
 
     /**
      * Gets the value of the relatedClient property.
@@ -80,10 +88,7 @@ public class ClientRelationship
     @ManyToOne(targetEntity = Client.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "RELATEDCLIENT_CLIENTRELATION_0"),
-        @JoinColumn(name = "RELATEDCLIENT_CLIENTRELATION_1")
-    })
+    @JoinColumn(name = "RELATED_CLIENT_CLIENT_RELATI_0")
     public Client getRelatedClient() {
         return relatedClient;
     }
@@ -111,7 +116,7 @@ public class ClientRelationship
     @ManyToOne(targetEntity = Relationship.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "RELATIONSHIP_CLIENTRELATIONS_0")
+    @JoinColumn(name = "RELATIONSHIP_CLIENT_RELATION_0")
     public Relationship getRelationship() {
         return relationship;
     }
@@ -137,7 +142,7 @@ public class ClientRelationship
      *     
      */
     @Basic
-    @Column(name = "RELATIONSHIPNAME", length = 255)
+    @Column(name = "RELATIONSHIP_NAME", length = 255)
     public String getRelationshipName() {
         return relationshipName;
     }
@@ -257,6 +262,33 @@ public class ClientRelationship
             strategy.appendField(locator, this, "relationshipName", buffer, theRelationshipName);
         }
         return buffer;
+    }
+
+    /**
+     * Gets the value of the hjid property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    @Id
+    @Column(name = "HJID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getHjid() {
+        return hjid;
+    }
+
+    /**
+     * Sets the value of the hjid property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setHjid(Long value) {
+        this.hjid = value;
     }
 
 }

@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "unavailability"
 })
 @Entity(name = "ArrayOfUnavailability")
-@Table(name = "ARRAYOFUNAVAILABILITY")
+@Table(name = "ARRAY_OF_UNAVAILABILITY")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfUnavailability
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfUnavailability
     @OneToMany(targetEntity = Unavailability.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "UNAVAILABILITY_ARRAYOFUNAVAI_0")
+    @JoinColumn(name = "UNAVAILABILITY_ARRAY_OF_UNAV_0")
     public List<Unavailability> getUnavailability() {
         if (unavailability == null) {
             unavailability = new ArrayList<Unavailability>();

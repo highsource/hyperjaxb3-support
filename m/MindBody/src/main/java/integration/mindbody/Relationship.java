@@ -95,7 +95,7 @@ public class Relationship
      *     
      */
     @Basic
-    @Column(name = "RELATIONSHIPNAME1", length = 255)
+    @Column(name = "RELATIONSHIP_NAME_1", length = 255)
     public String getRelationshipName1() {
         return relationshipName1;
     }
@@ -121,7 +121,7 @@ public class Relationship
      *     
      */
     @Basic
-    @Column(name = "RELATIONSHIPNAME2", length = 255)
+    @Column(name = "RELATIONSHIP_NAME_2", length = 255)
     public String getRelationshipName2() {
         return relationshipName2;
     }

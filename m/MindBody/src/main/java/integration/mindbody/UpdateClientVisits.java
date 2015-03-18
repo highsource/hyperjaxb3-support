@@ -55,7 +55,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlRootElement(name = "UpdateClientVisits")
 @Entity(name = "UpdateClientVisits")
-@Table(name = "UPDATECLIENTVISITS")
+@Table(name = "UPDATE_CLIENT_VISITS")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class UpdateClientVisits
     implements Serializable, Equals, HashCode, ToString

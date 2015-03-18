@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "clientIndexValue"
 })
 @Entity(name = "ArrayOfClientIndexValue")
-@Table(name = "ARRAYOFCLIENTINDEXVALUE")
+@Table(name = "ARRAY_OF_CLIENT_INDEX_VALUE")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfClientIndexValue
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfClientIndexValue
     @OneToMany(targetEntity = ClientIndexValue.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CLIENTINDEXVALUE_ARRAYOFCLIE_0")
+    @JoinColumn(name = "CLIENT_INDEX_VALUE_ARRAY_OF__0")
     public List<ClientIndexValue> getClientIndexValue() {
         if (clientIndexValue == null) {
             clientIndexValue = new ArrayList<ClientIndexValue>();

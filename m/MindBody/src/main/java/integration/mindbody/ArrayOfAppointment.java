@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "appointment"
 })
 @Entity(name = "ArrayOfAppointment")
-@Table(name = "ARRAYOFAPPOINTMENT")
+@Table(name = "ARRAY_OF_APPOINTMENT")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfAppointment
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfAppointment
     @OneToMany(targetEntity = Appointment.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "APPOINTMENT_ARRAYOFAPPOINTME_0")
+    @JoinColumn(name = "APPOINTMENT_ARRAY_OF_APPOINT_0")
     public List<Appointment> getAppointment() {
         if (appointment == null) {
             appointment = new ArrayList<Appointment>();

@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -73,7 +72,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "web"
 })
 @Entity(name = "WaitlistEntry")
-@Table(name = "WAITLISTENTRY")
+@Table(name = "WAITLIST_ENTRY")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class WaitlistEntry
     implements Serializable, Equals, HashCode, ToString
@@ -126,7 +125,7 @@ public class WaitlistEntry
      * 
      */
     @Basic
-    @Column(name = "CLASSID", precision = 20, scale = 0)
+    @Column(name = "CLASS_ID", precision = 20, scale = 0)
     public long getClassID() {
         return classID;
     }
@@ -148,7 +147,7 @@ public class WaitlistEntry
      *     
      */
     @Basic
-    @Column(name = "CLASSDATE")
+    @Column(name = "CLASS_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getClassDate() {
         return classDate;
@@ -177,10 +176,7 @@ public class WaitlistEntry
     @ManyToOne(targetEntity = Client.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "CLIENT_WAITLISTENTRY_ID"),
-        @JoinColumn(name = "CLIENT_WAITLISTENTRY_HJID")
-    })
+    @JoinColumn(name = "CLIENT_WAITLIST_ENTRY_ID")
     public Client getClient() {
         return client;
     }
@@ -208,10 +204,7 @@ public class WaitlistEntry
     @ManyToOne(targetEntity = ClassSchedule.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "CLASSSCHEDULE_WAITLISTENTRY__0"),
-        @JoinColumn(name = "CLASSSCHEDULE_WAITLISTENTRY__1")
-    })
+    @JoinColumn(name = "CLASS_SCHEDULE_WAITLIST_ENTR_0")
     public ClassSchedule getClassSchedule() {
         return classSchedule;
     }
@@ -237,7 +230,7 @@ public class WaitlistEntry
      *     
      */
     @Basic
-    @Column(name = "ENROLLMENTDATEFORWARD")
+    @Column(name = "ENROLLMENT_DATE_FORWARD")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEnrollmentDateForward() {
         return enrollmentDateForward;
@@ -264,7 +257,7 @@ public class WaitlistEntry
      *     
      */
     @Basic
-    @Column(name = "REQUESTDATETIME")
+    @Column(name = "REQUEST_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getRequestDateTime() {
         return requestDateTime;

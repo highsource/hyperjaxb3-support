@@ -8,8 +8,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -72,6 +73,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Availability")
 @Table(name = "AVAILABILITY")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Availability
     extends ScheduleItem
     implements Serializable, Equals, HashCode, ToString
@@ -130,10 +132,7 @@ public class Availability
     @ManyToOne(targetEntity = Staff.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "STAFF_AVAILABILITY_ID"),
-        @JoinColumn(name = "STAFF_AVAILABILITY_HJID")
-    })
+    @JoinColumn(name = "STAFF_AVAILABILITY_ID")
     public Staff getStaff() {
         return staff;
     }
@@ -161,10 +160,7 @@ public class Availability
     @ManyToOne(targetEntity = SessionType.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "SESSIONTYPE_AVAILABILITY_ID"),
-        @JoinColumn(name = "SESSIONTYPE_AVAILABILITY_HJID")
-    })
+    @JoinColumn(name = "SESSION_TYPE_AVAILABILITY_ID")
     public SessionType getSessionType() {
         return sessionType;
     }
@@ -218,7 +214,7 @@ public class Availability
      *     
      */
     @Basic
-    @Column(name = "STARTDATETIME")
+    @Column(name = "START_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getStartDateTime() {
         return startDateTime;
@@ -245,7 +241,7 @@ public class Availability
      *     
      */
     @Basic
-    @Column(name = "ENDDATETIME")
+    @Column(name = "END_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEndDateTime() {
         return endDateTime;
@@ -272,7 +268,7 @@ public class Availability
      *     
      */
     @Basic
-    @Column(name = "BOOKABLEENDDATETIME")
+    @Column(name = "BOOKABLE_END_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getBookableEndDateTime() {
         return bookableEndDateTime;
@@ -301,10 +297,7 @@ public class Availability
     @ManyToOne(targetEntity = Location.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "LOCATION__AVAILABILITY_ID"),
-        @JoinColumn(name = "LOCATION__AVAILABILITY_HJID")
-    })
+    @JoinColumn(name = "LOCATION__AVAILABILITY_ID")
     public Location getLocation() {
         return location;
     }

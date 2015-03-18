@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "lateCancel"
 })
 @Entity(name = "RemoveClientsFromClassesRequest")
-@Table(name = "REMOVECLIENTSFROMCLASSESREQU_0")
+@Table(name = "REMOVE_CLIENTS_FROM_CLASSES__3")
 public class RemoveClientsFromClassesRequest
     extends MBRequest
     implements Serializable, Equals, HashCode, ToString
@@ -87,7 +87,7 @@ public class RemoveClientsFromClassesRequest
     @ManyToOne(targetEntity = ArrayOfString.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "CLIENTIDS_REMOVECLIENTSFROMC_0")
+    @JoinColumn(name = "CLIENT_IDS_REMOVE_CLIENTS_FR_0")
     public ArrayOfString getClientIDs() {
         return clientIDs;
     }
@@ -115,7 +115,7 @@ public class RemoveClientsFromClassesRequest
     @ManyToOne(targetEntity = ArrayOfInt.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "CLASSIDS_REMOVECLIENTSFROMCL_0")
+    @JoinColumn(name = "CLASS_IDS_REMOVE_CLIENTS_FRO_0")
     public ArrayOfInt getClassIDs() {
         return classIDs;
     }
@@ -167,7 +167,7 @@ public class RemoveClientsFromClassesRequest
      *     
      */
     @Basic
-    @Column(name = "SENDEMAIL")
+    @Column(name = "SEND_EMAIL")
     public Boolean getSendEmail() {
         return sendEmail;
     }
@@ -193,7 +193,7 @@ public class RemoveClientsFromClassesRequest
      *     
      */
     @Basic
-    @Column(name = "LATECANCEL")
+    @Column(name = "LATE_CANCEL")
     public Boolean getLateCancel() {
         return lateCancel;
     }

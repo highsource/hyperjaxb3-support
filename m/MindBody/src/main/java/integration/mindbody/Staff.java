@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -100,6 +102,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Staff")
 @Table(name = "STAFF")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Staff
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -273,7 +276,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "MOBILEPHONE", length = 255)
+    @Column(name = "MOBILE_PHONE", length = 255)
     public String getMobilePhone() {
         return mobilePhone;
     }
@@ -299,7 +302,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "HOMEPHONE", length = 255)
+    @Column(name = "HOME_PHONE", length = 255)
     public String getHomePhone() {
         return homePhone;
     }
@@ -325,7 +328,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "WORKPHONE", length = 255)
+    @Column(name = "WORK_PHONE", length = 255)
     public String getWorkPhone() {
         return workPhone;
     }
@@ -377,7 +380,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "ADDRESS2", length = 255)
+    @Column(name = "ADDRESS_2", length = 255)
     public String getAddress2() {
         return address2;
     }
@@ -481,7 +484,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "POSTALCODE", length = 255)
+    @Column(name = "POSTAL_CODE", length = 255)
     public String getPostalCode() {
         return postalCode;
     }
@@ -507,7 +510,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "FOREIGNZIP", length = 255)
+    @Column(name = "FOREIGN_ZIP", length = 255)
     public String getForeignZip() {
         return foreignZip;
     }
@@ -533,7 +536,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "SORTORDER", precision = 10, scale = 0)
+    @Column(name = "SORT_ORDER", precision = 10, scale = 0)
     public Integer getSortOrder() {
         return sortOrder;
     }
@@ -561,7 +564,7 @@ public class Staff
     @ManyToOne(targetEntity = ArrayOfLocation.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "LOGINLOCATIONS_STAFF_HJID")
+    @JoinColumn(name = "LOGIN_LOCATIONS_STAFF_HJID")
     public ArrayOfLocation getLoginLocations() {
         return loginLocations;
     }
@@ -666,7 +669,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "FIRSTNAME", length = 255)
+    @Column(name = "FIRST_NAME", length = 255)
     public String getFirstName() {
         return firstName;
     }
@@ -692,7 +695,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "LASTNAME", length = 255)
+    @Column(name = "LAST_NAME", length = 255)
     public String getLastName() {
         return lastName;
     }
@@ -718,7 +721,7 @@ public class Staff
      *     
      */
     @Basic
-    @Column(name = "IMAGEURL", length = 255)
+    @Column(name = "IMAGE_URL", length = 255)
     public String getImageURL() {
         return imageURL;
     }
@@ -766,7 +769,7 @@ public class Staff
      * 
      */
     @Basic
-    @Column(name = "ISMALE")
+    @Column(name = "IS_MALE")
     public boolean isIsMale() {
         return isMale;
     }

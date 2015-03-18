@@ -9,7 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -60,8 +61,8 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "values"
 })
 @Entity(name = "ClientIndex")
-@Table(name = "CLIENTINDEX")
-@IdClass(ClientIndexId.class)
+@Table(name = "CLIENT_INDEX")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ClientIndex
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -167,7 +168,7 @@ public class ClientIndex
     @ManyToOne(targetEntity = ArrayOfClientIndexValue.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "VALUES__CLIENTINDEX_HJID")
+    @JoinColumn(name = "VALUES__CLIENT_INDEX_HJID")
     public ArrayOfClientIndexValue getValues() {
         return values;
     }

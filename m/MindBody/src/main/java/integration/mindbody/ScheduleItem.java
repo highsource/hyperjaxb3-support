@@ -2,8 +2,7 @@
 package integration.mindbody;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -43,8 +42,7 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
     Unavailability.class,
     Availability.class
 })
-@Entity(name = "ScheduleItem")
-@Table(name = "SCHEDULEITEM")
+@MappedSuperclass
 public class ScheduleItem
     extends MBObject
     implements Serializable, Equals, HashCode, ToString

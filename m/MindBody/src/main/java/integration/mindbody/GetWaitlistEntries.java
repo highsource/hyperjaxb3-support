@@ -55,7 +55,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlRootElement(name = "GetWaitlistEntries")
 @Entity(name = "GetWaitlistEntries")
-@Table(name = "GETWAITLISTENTRIES")
+@Table(name = "GET_WAITLIST_ENTRIES")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class GetWaitlistEntries
     implements Serializable, Equals, HashCode, ToString

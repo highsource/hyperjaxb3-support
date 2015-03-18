@@ -19,7 +19,7 @@ import org.jvnet.hyperjaxb3.item.Item;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity(name = "ArrayOfLongLongItem")
-@Table(name = "ARRAYOFLONGLONGITEM")
+@Table(name = "ARRAY_OF_LONG_LONG_ITEM")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfLongLongItem
     implements Serializable, Item<Long>

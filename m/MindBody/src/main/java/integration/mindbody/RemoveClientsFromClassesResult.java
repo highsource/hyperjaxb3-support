@@ -48,7 +48,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "classes"
 })
 @Entity(name = "RemoveClientsFromClassesResult")
-@Table(name = "REMOVECLIENTSFROMCLASSESRESU_0")
+@Table(name = "REMOVE_CLIENTS_FROM_CLASSES__1")
 public class RemoveClientsFromClassesResult
     extends MBResult
     implements Serializable, Equals, HashCode, ToString
@@ -69,7 +69,7 @@ public class RemoveClientsFromClassesResult
     @ManyToOne(targetEntity = ArrayOfClass.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "CLASSES_REMOVECLIENTSFROMCLA_0")
+    @JoinColumn(name = "CLASSES_REMOVE_CLIENTS_FROM__0")
     public ArrayOfClass getClasses() {
         return classes;
     }

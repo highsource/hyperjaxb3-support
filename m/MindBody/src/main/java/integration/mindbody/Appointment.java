@@ -10,8 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -92,6 +93,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Appointment")
 @Table(name = "APPOINTMENT")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Appointment
     extends ScheduleItem
     implements Serializable, Equals, HashCode, ToString
@@ -146,7 +148,7 @@ public class Appointment
      *     
      */
     @Basic
-    @Column(name = "GENDERPREFERENCE", length = 255)
+    @Column(name = "GENDER_PREFERENCE", length = 255)
     public String getGenderPreference() {
         return genderPreference;
     }
@@ -278,7 +280,7 @@ public class Appointment
      *     
      */
     @Basic
-    @Column(name = "STARTDATETIME")
+    @Column(name = "START_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getStartDateTime() {
         return startDateTime;
@@ -305,7 +307,7 @@ public class Appointment
      *     
      */
     @Basic
-    @Column(name = "ENDDATETIME")
+    @Column(name = "END_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEndDateTime() {
         return endDateTime;
@@ -358,7 +360,7 @@ public class Appointment
      *     
      */
     @Basic
-    @Column(name = "STAFFREQUESTED")
+    @Column(name = "STAFF_REQUESTED")
     public Boolean getStaffRequested() {
         return staffRequested;
     }
@@ -386,10 +388,7 @@ public class Appointment
     @ManyToOne(targetEntity = Program.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "PROGRAM_APPOINTMENT_ID"),
-        @JoinColumn(name = "PROGRAM_APPOINTMENT_HJID")
-    })
+    @JoinColumn(name = "PROGRAM_APPOINTMENT_ID")
     public Program getProgram() {
         return program;
     }
@@ -417,10 +416,7 @@ public class Appointment
     @ManyToOne(targetEntity = SessionType.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "SESSIONTYPE_APPOINTMENT_ID"),
-        @JoinColumn(name = "SESSIONTYPE_APPOINTMENT_HJID")
-    })
+    @JoinColumn(name = "SESSION_TYPE_APPOINTMENT_ID")
     public SessionType getSessionType() {
         return sessionType;
     }
@@ -448,10 +444,7 @@ public class Appointment
     @ManyToOne(targetEntity = Location.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "LOCATION__APPOINTMENT_ID"),
-        @JoinColumn(name = "LOCATION__APPOINTMENT_HJID")
-    })
+    @JoinColumn(name = "LOCATION__APPOINTMENT_ID")
     public Location getLocation() {
         return location;
     }
@@ -479,10 +472,7 @@ public class Appointment
     @ManyToOne(targetEntity = Staff.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "STAFF_APPOINTMENT_ID"),
-        @JoinColumn(name = "STAFF_APPOINTMENT_HJID")
-    })
+    @JoinColumn(name = "STAFF_APPOINTMENT_ID")
     public Staff getStaff() {
         return staff;
     }
@@ -510,10 +500,7 @@ public class Appointment
     @ManyToOne(targetEntity = Client.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "CLIENT_APPOINTMENT_ID"),
-        @JoinColumn(name = "CLIENT_APPOINTMENT_HJID")
-    })
+    @JoinColumn(name = "CLIENT_APPOINTMENT_ID")
     public Client getClient() {
         return client;
     }
@@ -539,7 +526,7 @@ public class Appointment
      *     
      */
     @Basic
-    @Column(name = "FIRSTAPPOINTMENT")
+    @Column(name = "FIRST_APPOINTMENT")
     public Boolean getFirstAppointment() {
         return firstAppointment;
     }
@@ -567,10 +554,7 @@ public class Appointment
     @ManyToOne(targetEntity = ClientService.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "CLIENTSERVICE_APPOINTMENT_ID"),
-        @JoinColumn(name = "CLIENTSERVICE_APPOINTMENT_HJ_0")
-    })
+    @JoinColumn(name = "CLIENT_SERVICE_APPOINTMENT_ID")
     public ClientService getClientService() {
         return clientService;
     }

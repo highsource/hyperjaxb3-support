@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "location"
 })
 @Entity(name = "ArrayOfLocation")
-@Table(name = "ARRAYOFLOCATION")
+@Table(name = "ARRAY_OF_LOCATION")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfLocation
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfLocation
     @OneToMany(targetEntity = Location.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "LOCATION__ARRAYOFLOCATION_HJ_0")
+    @JoinColumn(name = "LOCATION__ARRAY_OF_LOCATION__0")
     public List<Location> getLocation() {
         if (location == null) {
             location = new ArrayList<Location>();

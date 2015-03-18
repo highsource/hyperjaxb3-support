@@ -69,19 +69,19 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "fields"
 })
 @XmlSeeAlso({
-    GetClassVisitsRequest.class,
-    AddClientsToClassesRequest.class,
-    GetWaitlistEntriesRequest.class,
-    RemoveClientsFromClassesRequest.class,
-    UpdateClientVisitsRequest.class,
-    GetEnrollmentsRequest.class,
+    RemoveFromWaitlistRequest.class,
+    GetSemestersRequest.class,
     GetClassesRequest.class,
     GetCoursesRequest.class,
-    GetSemestersRequest.class,
+    AddClientsToClassesRequest.class,
     GetClassDescriptionsRequest.class,
-    RemoveFromWaitlistRequest.class,
     GetClassSchedulesRequest.class,
-    AddClientsToEnrollmentsRequest.class
+    AddClientsToEnrollmentsRequest.class,
+    GetClassVisitsRequest.class,
+    GetWaitlistEntriesRequest.class,
+    GetEnrollmentsRequest.class,
+    UpdateClientVisitsRequest.class,
+    RemoveClientsFromClassesRequest.class
 })
 @Entity(name = "MBRequest")
 @Table(name = "MBREQUEST")
@@ -117,7 +117,7 @@ public class MBRequest
     @ManyToOne(targetEntity = SourceCredentials.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "SOURCECREDENTIALS_MBREQUEST__0")
+    @JoinColumn(name = "SOURCE_CREDENTIALS_MBREQUEST_0")
     public SourceCredentials getSourceCredentials() {
         return sourceCredentials;
     }
@@ -145,7 +145,7 @@ public class MBRequest
     @ManyToOne(targetEntity = UserCredentials.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "USERCREDENTIALS_MBREQUEST_HJ_0")
+    @JoinColumn(name = "USER_CREDENTIALS_MBREQUEST_H_0")
     public UserCredentials getUserCredentials() {
         return userCredentials;
     }
@@ -198,7 +198,7 @@ public class MBRequest
      *     
      */
     @Basic
-    @Column(name = "PAGESIZE", precision = 10, scale = 0)
+    @Column(name = "PAGE_SIZE", precision = 10, scale = 0)
     public Integer getPageSize() {
         return pageSize;
     }
@@ -224,7 +224,7 @@ public class MBRequest
      *     
      */
     @Basic
-    @Column(name = "CURRENTPAGEINDEX", precision = 10, scale = 0)
+    @Column(name = "CURRENT_PAGE_INDEX", precision = 10, scale = 0)
     public Integer getCurrentPageIndex() {
         return currentPageIndex;
     }

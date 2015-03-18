@@ -175,7 +175,7 @@ public class Semester
      *     
      */
     @Basic
-    @Column(name = "STARTDATE")
+    @Column(name = "START_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getStartDate() {
         return startDate;
@@ -202,7 +202,7 @@ public class Semester
      *     
      */
     @Basic
-    @Column(name = "ENDDATE")
+    @Column(name = "END_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEndDate() {
         return endDate;
@@ -229,7 +229,7 @@ public class Semester
      *     
      */
     @Basic
-    @Column(name = "MULTIREGISTRATIONDISCOUNT", precision = 20, scale = 10)
+    @Column(name = "MULTI_REGISTRATION_DISCOUNT", precision = 20, scale = 10)
     public BigDecimal getMultiRegistrationDiscount() {
         return multiRegistrationDiscount;
     }
@@ -255,7 +255,7 @@ public class Semester
      *     
      */
     @Basic
-    @Column(name = "MULTIREGISTRATIONDEADLINE")
+    @Column(name = "MULTI_REGISTRATION_DEADLINE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getMultiRegistrationDeadline() {
         return multiRegistrationDeadline;

@@ -62,7 +62,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "dateTime"
 })
 @Entity(name = "ArrayOfDateTime")
-@Table(name = "ARRAYOFDATETIME")
+@Table(name = "ARRAY_OF_DATE_TIME")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfDateTime
     implements Serializable, Equals, HashCode, ToString
@@ -207,7 +207,7 @@ public class ArrayOfDateTime
     @OneToMany(targetEntity = ArrayOfDateTimeDateTimeItem.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "DATETIMEITEMS_ARRAYOFDATETIM_0")
+    @JoinColumn(name = "DATE_TIME_ITEMS_ARRAY_OF_DAT_0")
     public List<ArrayOfDateTimeDateTimeItem> getDateTimeItems() {
         if (this.dateTimeItems == null) {
             this.dateTimeItems = new ArrayList<ArrayOfDateTimeDateTimeItem>();

@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -54,7 +56,8 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "name"
 })
 @Entity(name = "ClientIndexValue")
-@Table(name = "CLIENTINDEXVALUE")
+@Table(name = "CLIENT_INDEX_VALUE")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ClientIndexValue
     extends MBObject
     implements Serializable, Equals, HashCode, ToString

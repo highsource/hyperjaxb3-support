@@ -60,7 +60,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "_long"
 })
 @Entity(name = "ArrayOfLong")
-@Table(name = "ARRAYOFLONG")
+@Table(name = "ARRAY_OF_LONG")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfLong
     implements Serializable, Equals, HashCode, ToString
@@ -204,7 +204,7 @@ public class ArrayOfLong
     @OneToMany(targetEntity = ArrayOfLongLongItem.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "LONGITEMS_ARRAYOFLONG_HJID")
+    @JoinColumn(name = "LONG_ITEMS_ARRAY_OF_LONG_HJID")
     public List<ArrayOfLongLongItem> getLongItems() {
         if (this.longItems == null) {
             this.longItems = new ArrayList<ArrayOfLongLongItem>();

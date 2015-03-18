@@ -71,7 +71,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "postalCode"
 })
 @Entity(name = "ClientCreditCard")
-@Table(name = "CLIENTCREDITCARD")
+@Table(name = "CLIENT_CREDIT_CARD")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ClientCreditCard
     implements Serializable, Equals, HashCode, ToString
@@ -110,7 +110,7 @@ public class ClientCreditCard
      *     
      */
     @Basic
-    @Column(name = "CARDTYPE", length = 255)
+    @Column(name = "CARD_TYPE", length = 255)
     public String getCardType() {
         return cardType;
     }
@@ -136,7 +136,7 @@ public class ClientCreditCard
      *     
      */
     @Basic
-    @Column(name = "LASTFOUR", length = 255)
+    @Column(name = "LAST_FOUR", length = 255)
     public String getLastFour() {
         return lastFour;
     }
@@ -162,7 +162,7 @@ public class ClientCreditCard
      *     
      */
     @Basic
-    @Column(name = "CARDNUMBER", length = 255)
+    @Column(name = "CARD_NUMBER", length = 255)
     public String getCardNumber() {
         return cardNumber;
     }
@@ -188,7 +188,7 @@ public class ClientCreditCard
      *     
      */
     @Basic
-    @Column(name = "CARDHOLDER", length = 255)
+    @Column(name = "CARD_HOLDER", length = 255)
     public String getCardHolder() {
         return cardHolder;
     }
@@ -214,7 +214,7 @@ public class ClientCreditCard
      *     
      */
     @Basic
-    @Column(name = "EXPMONTH", length = 255)
+    @Column(name = "EXP_MONTH", length = 255)
     public String getExpMonth() {
         return expMonth;
     }
@@ -240,7 +240,7 @@ public class ClientCreditCard
      *     
      */
     @Basic
-    @Column(name = "EXPYEAR", length = 255)
+    @Column(name = "EXP_YEAR", length = 255)
     public String getExpYear() {
         return expYear;
     }
@@ -344,7 +344,7 @@ public class ClientCreditCard
      *     
      */
     @Basic
-    @Column(name = "POSTALCODE", length = 255)
+    @Column(name = "POSTAL_CODE", length = 255)
     public String getPostalCode() {
         return postalCode;
     }

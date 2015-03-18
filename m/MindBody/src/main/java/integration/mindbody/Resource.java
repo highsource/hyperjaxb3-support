@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -55,6 +57,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Resource")
 @Table(name = "RESOURCE_")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Resource
     extends MBObject
     implements Serializable, Equals, HashCode, ToString

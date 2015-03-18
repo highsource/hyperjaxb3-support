@@ -199,7 +199,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "LOGOURL", length = 255)
+    @Column(name = "LOGO_URL", length = 255)
     public String getLogoURL() {
         return logoURL;
     }
@@ -225,7 +225,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "PAGECOLOR1", length = 255)
+    @Column(name = "PAGE_COLOR_1", length = 255)
     public String getPageColor1() {
         return pageColor1;
     }
@@ -251,7 +251,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "PAGECOLOR2", length = 255)
+    @Column(name = "PAGE_COLOR_2", length = 255)
     public String getPageColor2() {
         return pageColor2;
     }
@@ -277,7 +277,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "PAGECOLOR3", length = 255)
+    @Column(name = "PAGE_COLOR_3", length = 255)
     public String getPageColor3() {
         return pageColor3;
     }
@@ -303,7 +303,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "PAGECOLOR4", length = 255)
+    @Column(name = "PAGE_COLOR_4", length = 255)
     public String getPageColor4() {
         return pageColor4;
     }
@@ -329,7 +329,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "ACCEPTSVISA")
+    @Column(name = "ACCEPTS_VISA")
     public Boolean getAcceptsVisa() {
         return acceptsVisa;
     }
@@ -355,7 +355,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "ACCEPTSDISCOVER")
+    @Column(name = "ACCEPTS_DISCOVER")
     public Boolean getAcceptsDiscover() {
         return acceptsDiscover;
     }
@@ -381,7 +381,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "ACCEPTSMASTERCARD")
+    @Column(name = "ACCEPTS_MASTER_CARD")
     public Boolean getAcceptsMasterCard() {
         return acceptsMasterCard;
     }
@@ -407,7 +407,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "ACCEPTSAMERICANEXPRESS")
+    @Column(name = "ACCEPTS_AMERICAN_EXPRESS")
     public Boolean getAcceptsAmericanExpress() {
         return acceptsAmericanExpress;
     }
@@ -433,7 +433,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "CONTACTEMAIL", length = 255)
+    @Column(name = "CONTACT_EMAIL", length = 255)
     public String getContactEmail() {
         return contactEmail;
     }
@@ -485,7 +485,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "TOTALWOD")
+    @Column(name = "TOTAL_WOD")
     public Boolean getTotalWOD() {
         return totalWOD;
     }
@@ -511,7 +511,7 @@ public class Site
      *     
      */
     @Basic
-    @Column(name = "TAXINCLUSIVEPRICES")
+    @Column(name = "TAX_INCLUSIVE_PRICES")
     public Boolean getTaxInclusivePrices() {
         return taxInclusivePrices;
     }

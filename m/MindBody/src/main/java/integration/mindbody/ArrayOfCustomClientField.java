@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "customClientField"
 })
 @Entity(name = "ArrayOfCustomClientField")
-@Table(name = "ARRAYOFCUSTOMCLIENTFIELD")
+@Table(name = "ARRAY_OF_CUSTOM_CLIENT_FIELD")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfCustomClientField
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfCustomClientField
     @OneToMany(targetEntity = CustomClientField.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CUSTOMCLIENTFIELD_ARRAYOFCUS_0")
+    @JoinColumn(name = "CUSTOM_CLIENT_FIELD_ARRAY_OF_0")
     public List<CustomClientField> getCustomClientField() {
         if (customClientField == null) {
             customClientField = new ArrayList<CustomClientField>();

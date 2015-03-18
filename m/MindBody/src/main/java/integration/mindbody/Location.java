@@ -9,7 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -113,7 +114,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Location")
 @Table(name = "LOCATION_")
-@IdClass(LocationId.class)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Location
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -190,7 +191,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "BUSINESSID", precision = 10, scale = 0)
+    @Column(name = "BUSINESS_ID", precision = 10, scale = 0)
     public Integer getBusinessID() {
         return businessID;
     }
@@ -216,7 +217,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "SITEID", precision = 10, scale = 0)
+    @Column(name = "SITE_ID", precision = 10, scale = 0)
     public Integer getSiteID() {
         return siteID;
     }
@@ -242,7 +243,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "BUSINESSDESCRIPTION", length = 255)
+    @Column(name = "BUSINESS_DESCRIPTION", length = 255)
     public String getBusinessDescription() {
         return businessDescription;
     }
@@ -270,7 +271,7 @@ public class Location
     @ManyToOne(targetEntity = ArrayOfString.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "ADDITIONALIMAGEURLS_LOCATION_0")
+    @JoinColumn(name = "ADDITIONAL_IMAGE_URLS_LOCATI_0")
     public ArrayOfString getAdditionalImageURLs() {
         return additionalImageURLs;
     }
@@ -296,7 +297,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "FACILITYSQUAREFEET", precision = 10, scale = 0)
+    @Column(name = "FACILITY_SQUARE_FEET", precision = 10, scale = 0)
     public Integer getFacilitySquareFeet() {
         return facilitySquareFeet;
     }
@@ -322,7 +323,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "TREATMENTROOMS", precision = 10, scale = 0)
+    @Column(name = "TREATMENT_ROOMS", precision = 10, scale = 0)
     public Integer getTreatmentRooms() {
         return treatmentRooms;
     }
@@ -348,7 +349,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "PROSPAFINDERSITE")
+    @Column(name = "PRO_SPA_FINDER_SITE")
     public Boolean getProSpaFinderSite() {
         return proSpaFinderSite;
     }
@@ -374,7 +375,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "HASCLASSES")
+    @Column(name = "HAS_CLASSES")
     public Boolean getHasClasses() {
         return hasClasses;
     }
@@ -400,7 +401,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "PHONEEXTENSION", length = 255)
+    @Column(name = "PHONE_EXTENSION", length = 255)
     public String getPhoneExtension() {
         return phoneExtension;
     }
@@ -531,7 +532,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "ADDRESS2", length = 255)
+    @Column(name = "ADDRESS_2", length = 255)
     public String getAddress2() {
         return address2;
     }
@@ -557,7 +558,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "TAX1", precision = 20, scale = 10)
+    @Column(name = "TAX_1", precision = 20, scale = 10)
     public Float getTax1() {
         return tax1;
     }
@@ -583,7 +584,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "TAX2", precision = 20, scale = 10)
+    @Column(name = "TAX_2", precision = 20, scale = 10)
     public Float getTax2() {
         return tax2;
     }
@@ -609,7 +610,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "TAX3", precision = 20, scale = 10)
+    @Column(name = "TAX_3", precision = 20, scale = 10)
     public Float getTax3() {
         return tax3;
     }
@@ -635,7 +636,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "TAX4", precision = 20, scale = 10)
+    @Column(name = "TAX_4", precision = 20, scale = 10)
     public Float getTax4() {
         return tax4;
     }
@@ -661,7 +662,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "TAX5", precision = 20, scale = 10)
+    @Column(name = "TAX_5", precision = 20, scale = 10)
     public Float getTax5() {
         return tax5;
     }
@@ -739,7 +740,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "STATEPROVCODE", length = 255)
+    @Column(name = "STATE_PROV_CODE", length = 255)
     public String getStateProvCode() {
         return stateProvCode;
     }
@@ -765,7 +766,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "POSTALCODE", length = 255)
+    @Column(name = "POSTAL_CODE", length = 255)
     public String getPostalCode() {
         return postalCode;
     }
@@ -843,7 +844,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "DISTANCEINMILES", precision = 20, scale = 10)
+    @Column(name = "DISTANCE_IN_MILES", precision = 20, scale = 10)
     public Double getDistanceInMiles() {
         return distanceInMiles;
     }
@@ -869,7 +870,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "IMAGEURL", length = 255)
+    @Column(name = "IMAGE_URL", length = 255)
     public String getImageURL() {
         return imageURL;
     }
@@ -921,7 +922,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "HASSITE")
+    @Column(name = "HAS_SITE")
     public Boolean getHasSite() {
         return hasSite;
     }
@@ -947,7 +948,7 @@ public class Location
      *     
      */
     @Basic
-    @Column(name = "CANBOOK")
+    @Column(name = "CAN_BOOK")
     public Boolean getCanBook() {
         return canBook;
     }

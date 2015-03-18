@@ -60,7 +60,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "_int"
 })
 @Entity(name = "ArrayOfInt")
-@Table(name = "ARRAYOFINT")
+@Table(name = "ARRAY_OF_INT")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfInt
     implements Serializable, Equals, HashCode, ToString
@@ -204,7 +204,7 @@ public class ArrayOfInt
     @OneToMany(targetEntity = ArrayOfIntIntItem.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "INTITEMS_ARRAYOFINT_HJID")
+    @JoinColumn(name = "INT_ITEMS_ARRAY_OF_INT_HJID")
     public List<ArrayOfIntIntItem> getIntItems() {
         if (this.intItems == null) {
             this.intItems = new ArrayList<ArrayOfIntIntItem>();

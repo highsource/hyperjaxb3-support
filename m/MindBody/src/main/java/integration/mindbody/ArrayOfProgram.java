@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "program"
 })
 @Entity(name = "ArrayOfProgram")
-@Table(name = "ARRAYOFPROGRAM")
+@Table(name = "ARRAY_OF_PROGRAM")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfProgram
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfProgram
     @OneToMany(targetEntity = Program.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "PROGRAM_ARRAYOFPROGRAM_HJID")
+    @JoinColumn(name = "PROGRAM_ARRAY_OF_PROGRAM_HJID")
     public List<Program> getProgram() {
         if (program == null) {
             program = new ArrayList<Program>();

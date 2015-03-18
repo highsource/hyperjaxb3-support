@@ -11,7 +11,7 @@
         <cxf.version>2.5.6</cxf.version>
         <hibernate-jpa-2.1-api.version>1.0.0.Final</hibernate-jpa-2.1-api.version>
         <hibernate-entitymanager.version>4.3.8.Final</hibernate-entitymanager.version>
-        <hyperjaxb3-ejb.version>0.5.5</hyperjaxb3-ejb.version>
+        <hyperjaxb3-ejb.version>0.6.0</hyperjaxb3-ejb.version>
         <hsqldb.version>2.3.2</hsqldb.version>
         <hibernate.maven.plugin.version>2.2</hibernate.maven.plugin.version>
     </properties>

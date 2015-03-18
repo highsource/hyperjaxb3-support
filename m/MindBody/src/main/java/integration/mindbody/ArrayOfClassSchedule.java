@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "classSchedule"
 })
 @Entity(name = "ArrayOfClassSchedule")
-@Table(name = "ARRAYOFCLASSSCHEDULE")
+@Table(name = "ARRAY_OF_CLASS_SCHEDULE")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfClassSchedule
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfClassSchedule
     @OneToMany(targetEntity = ClassSchedule.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CLASSSCHEDULE_ARRAYOFCLASSSC_0")
+    @JoinColumn(name = "CLASS_SCHEDULE_ARRAY_OF_CLAS_0")
     public List<ClassSchedule> getClassSchedule() {
         if (classSchedule == null) {
             classSchedule = new ArrayList<ClassSchedule>();

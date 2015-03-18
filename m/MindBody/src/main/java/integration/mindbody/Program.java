@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -57,6 +59,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Program")
 @Table(name = "PROGRAM")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Program
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -125,7 +128,7 @@ public class Program
      *     
      */
     @Basic
-    @Column(name = "SCHEDULETYPE", length = 255)
+    @Column(name = "SCHEDULE_TYPE", length = 255)
     @Enumerated(EnumType.STRING)
     public ScheduleType getScheduleType() {
         return scheduleType;
@@ -152,7 +155,7 @@ public class Program
      *     
      */
     @Basic
-    @Column(name = "CANCELOFFSET", precision = 10, scale = 0)
+    @Column(name = "CANCEL_OFFSET", precision = 10, scale = 0)
     public Integer getCancelOffset() {
         return cancelOffset;
     }

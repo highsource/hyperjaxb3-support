@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -60,7 +62,8 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "name"
 })
 @Entity(name = "SessionType")
-@Table(name = "SESSIONTYPE")
+@Table(name = "SESSION_TYPE")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class SessionType
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -89,7 +92,7 @@ public class SessionType
      *     
      */
     @Basic
-    @Column(name = "DEFAULTTIMELENGTH", precision = 10, scale = 0)
+    @Column(name = "DEFAULT_TIME_LENGTH", precision = 10, scale = 0)
     public Integer getDefaultTimeLength() {
         return defaultTimeLength;
     }
@@ -115,7 +118,7 @@ public class SessionType
      *     
      */
     @Basic
-    @Column(name = "PROGRAMID", precision = 10, scale = 0)
+    @Column(name = "PROGRAM_ID", precision = 10, scale = 0)
     public Integer getProgramID() {
         return programID;
     }
@@ -141,7 +144,7 @@ public class SessionType
      *     
      */
     @Basic
-    @Column(name = "NUMDEDUCTED", precision = 10, scale = 0)
+    @Column(name = "NUM_DEDUCTED", precision = 10, scale = 0)
     public Integer getNumDeducted() {
         return numDeducted;
     }

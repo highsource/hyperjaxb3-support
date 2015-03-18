@@ -5,18 +5,11 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
@@ -63,26 +56,24 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "errorCode"
 })
 @XmlSeeAlso({
-    Staff.class,
-    ClassDescription.class,
-    Client.class,
     Program.class,
-    ClientService.class,
-    Resource.class,
-    Class.class,
-    ClientIndexValue.class,
+    ClassSchedule.class,
+    Staff.class,
     SessionType.class,
     Visit.class,
-    ClientRelationship.class,
+    Class.class,
+    ClientIndexValue.class,
     ScheduleItem.class,
-    ClassSchedule.class,
+    Client.class,
     ClientIndex.class,
+    Resource.class,
+    ClientService.class,
+    ClientRelationship.class,
+    Location.class,
     Rep.class,
-    Location.class
+    ClassDescription.class
 })
-@Entity(name = "MBObject")
-@Table(name = "MBOBJECT")
-@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass
 public class MBObject
     implements Serializable, Equals, HashCode, ToString
 {
@@ -96,8 +87,6 @@ public class MBObject
     protected String execute;
     @XmlElement(name = "ErrorCode")
     protected String errorCode;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
 
     /**
      * Gets the value of the site property.
@@ -190,7 +179,7 @@ public class MBObject
      *     
      */
     @Basic
-    @Column(name = "ERRORCODE", length = 255)
+    @Column(name = "ERROR_CODE", length = 255)
     public String getErrorCode() {
         return errorCode;
     }
@@ -325,33 +314,6 @@ public class MBObject
             strategy.appendField(locator, this, "errorCode", buffer, theErrorCode);
         }
         return buffer;
-    }
-
-    /**
-     * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    /**
-     * Sets the value of the hjid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setHjid(Long value) {
-        this.hjid = value;
     }
 
 }

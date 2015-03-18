@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "availability"
 })
 @Entity(name = "ArrayOfAvailability")
-@Table(name = "ARRAYOFAVAILABILITY")
+@Table(name = "ARRAY_OF_AVAILABILITY")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfAvailability
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfAvailability
     @OneToMany(targetEntity = Availability.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "AVAILABILITY_ARRAYOFAVAILABI_0")
+    @JoinColumn(name = "AVAILABILITY_ARRAY_OF_AVAILA_0")
     public List<Availability> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<Availability>();

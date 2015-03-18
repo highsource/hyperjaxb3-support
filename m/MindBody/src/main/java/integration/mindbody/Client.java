@@ -10,8 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -150,6 +151,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Client")
 @Table(name = "CLIENT")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Client
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -262,7 +264,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "NEWID", length = 255)
+    @Column(name = "NEW_ID", length = 255)
     public String getNewID() {
         return newID;
     }
@@ -288,7 +290,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "ACCOUNTBALANCE", precision = 20, scale = 10)
+    @Column(name = "ACCOUNT_BALANCE", precision = 20, scale = 10)
     public Double getAccountBalance() {
         return accountBalance;
     }
@@ -316,7 +318,7 @@ public class Client
     @ManyToOne(targetEntity = ArrayOfClientIndex.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "CLIENTINDEXES_CLIENT_HJID")
+    @JoinColumn(name = "CLIENT_INDEXES_CLIENT_HJID")
     public ArrayOfClientIndex getClientIndexes() {
         return clientIndexes;
     }
@@ -422,7 +424,7 @@ public class Client
     @ManyToOne(targetEntity = ClientCreditCard.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "CLIENTCREDITCARD_CLIENT_HJID")
+    @JoinColumn(name = "CLIENT_CREDIT_CARD_CLIENT_HJ_0")
     public ClientCreditCard getClientCreditCard() {
         return clientCreditCard;
     }
@@ -448,7 +450,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "LASTFORMULANOTES", length = 255)
+    @Column(name = "LAST_FORMULA_NOTES", length = 255)
     public String getLastFormulaNotes() {
         return lastFormulaNotes;
     }
@@ -474,7 +476,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "APPOINTMENTGENDERPREFERENCE", length = 255)
+    @Column(name = "APPOINTMENT_GENDER_PREFERENCE", length = 255)
     public String getAppointmentGenderPreference() {
         return appointmentGenderPreference;
     }
@@ -526,7 +528,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "ISCOMPANY")
+    @Column(name = "IS_COMPANY")
     public Boolean getIsCompany() {
         return isCompany;
     }
@@ -580,7 +582,7 @@ public class Client
     @ManyToOne(targetEntity = ArrayOfClientRelationship.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "CLIENTRELATIONSHIPS_CLIENT_H_0")
+    @JoinColumn(name = "CLIENT_RELATIONSHIPS_CLIENT__0")
     public ArrayOfClientRelationship getClientRelationships() {
         return clientRelationships;
     }
@@ -636,7 +638,7 @@ public class Client
     @ManyToOne(targetEntity = ArrayOfCustomClientField.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "CUSTOMCLIENTFIELDS_CLIENT_HJ_0")
+    @JoinColumn(name = "CUSTOM_CLIENT_FIELDS_CLIENT__0")
     public ArrayOfCustomClientField getCustomClientFields() {
         return customClientFields;
     }
@@ -662,7 +664,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "LIABILITYRELEASE")
+    @Column(name = "LIABILITY_RELEASE")
     public Boolean getLiabilityRelease() {
         return liabilityRelease;
     }
@@ -688,7 +690,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "EMERGENCYCONTACTINFONAME", length = 255)
+    @Column(name = "EMERGENCY_CONTACT_INFO_NAME", length = 255)
     public String getEmergencyContactInfoName() {
         return emergencyContactInfoName;
     }
@@ -714,7 +716,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "EMERGENCYCONTACTINFORELATION_0", length = 255)
+    @Column(name = "EMERGENCY_CONTACT_INFO_RELAT_0", length = 255)
     public String getEmergencyContactInfoRelationship() {
         return emergencyContactInfoRelationship;
     }
@@ -740,7 +742,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "EMERGENCYCONTACTINFOPHONE", length = 255)
+    @Column(name = "EMERGENCY_CONTACT_INFO_PHONE", length = 255)
     public String getEmergencyContactInfoPhone() {
         return emergencyContactInfoPhone;
     }
@@ -766,7 +768,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "EMERGENCYCONTACTINFOEMAIL", length = 255)
+    @Column(name = "EMERGENCY_CONTACT_INFO_EMAIL", length = 255)
     public String getEmergencyContactInfoEmail() {
         return emergencyContactInfoEmail;
     }
@@ -792,7 +794,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "PROMOTIONALEMAILOPTIN")
+    @Column(name = "PROMOTIONAL_EMAIL_OPT_IN")
     public Boolean getPromotionalEmailOptIn() {
         return promotionalEmailOptIn;
     }
@@ -871,7 +873,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "FIRSTNAME", length = 255)
+    @Column(name = "FIRST_NAME", length = 255)
     public String getFirstName() {
         return firstName;
     }
@@ -897,7 +899,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "MIDDLENAME", length = 255)
+    @Column(name = "MIDDLE_NAME", length = 255)
     public String getMiddleName() {
         return middleName;
     }
@@ -923,7 +925,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "LASTNAME", length = 255)
+    @Column(name = "LAST_NAME", length = 255)
     public String getLastName() {
         return lastName;
     }
@@ -975,7 +977,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "EMAILOPTIN")
+    @Column(name = "EMAIL_OPT_IN")
     public Boolean getEmailOptIn() {
         return emailOptIn;
     }
@@ -1001,7 +1003,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "ADDRESSLINE1", length = 255)
+    @Column(name = "ADDRESS_LINE_1", length = 255)
     public String getAddressLine1() {
         return addressLine1;
     }
@@ -1027,7 +1029,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "ADDRESSLINE2", length = 255)
+    @Column(name = "ADDRESS_LINE_2", length = 255)
     public String getAddressLine2() {
         return addressLine2;
     }
@@ -1105,7 +1107,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "POSTALCODE", length = 255)
+    @Column(name = "POSTAL_CODE", length = 255)
     public String getPostalCode() {
         return postalCode;
     }
@@ -1157,7 +1159,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "MOBILEPHONE", length = 255)
+    @Column(name = "MOBILE_PHONE", length = 255)
     public String getMobilePhone() {
         return mobilePhone;
     }
@@ -1183,7 +1185,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "HOMEPHONE", length = 255)
+    @Column(name = "HOME_PHONE", length = 255)
     public String getHomePhone() {
         return homePhone;
     }
@@ -1209,7 +1211,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "WORKPHONE", length = 255)
+    @Column(name = "WORK_PHONE", length = 255)
     public String getWorkPhone() {
         return workPhone;
     }
@@ -1235,7 +1237,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "WORKEXTENSION", length = 255)
+    @Column(name = "WORK_EXTENSION", length = 255)
     public String getWorkExtension() {
         return workExtension;
     }
@@ -1261,7 +1263,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "BIRTHDATE")
+    @Column(name = "BIRTH_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getBirthDate() {
         return birthDate;
@@ -1288,7 +1290,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "FIRSTAPPOINTMENTDATE")
+    @Column(name = "FIRST_APPOINTMENT_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getFirstAppointmentDate() {
         return firstAppointmentDate;
@@ -1315,7 +1317,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "REFERREDBY", length = 255)
+    @Column(name = "REFERRED_BY", length = 255)
     public String getReferredBy() {
         return referredBy;
     }
@@ -1343,10 +1345,7 @@ public class Client
     @ManyToOne(targetEntity = Location.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "HOMELOCATION_CLIENT_ID"),
-        @JoinColumn(name = "HOMELOCATION_CLIENT_HJID")
-    })
+    @JoinColumn(name = "HOME_LOCATION_CLIENT_ID")
     public Location getHomeLocation() {
         return homeLocation;
     }
@@ -1372,7 +1371,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "YELLOWALERT", length = 255)
+    @Column(name = "YELLOW_ALERT", length = 255)
     public String getYellowAlert() {
         return yellowAlert;
     }
@@ -1398,7 +1397,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "REDALERT", length = 255)
+    @Column(name = "RED_ALERT", length = 255)
     public String getRedAlert() {
         return redAlert;
     }
@@ -1424,7 +1423,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "PHOTOURL", length = 255)
+    @Column(name = "PHOTO_URL", length = 255)
     public String getPhotoURL() {
         return photoURL;
     }
@@ -1450,7 +1449,7 @@ public class Client
      *     
      */
     @Basic
-    @Column(name = "ISPROSPECT")
+    @Column(name = "IS_PROSPECT")
     public Boolean getIsProspect() {
         return isProspect;
     }

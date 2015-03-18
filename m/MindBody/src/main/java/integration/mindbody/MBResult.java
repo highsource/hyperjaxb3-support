@@ -69,18 +69,18 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlSeeAlso({
     AddClientsToEnrollmentsResult.class,
-    GetWaitlistEntriesResult.class,
+    GetClassesResult.class,
     GetEnrollmentsResult.class,
-    GetSemestersResult.class,
-    AddClientsToClassesResult.class,
-    UpdateClientVisitsResult.class,
-    GetClassDescriptionsResult.class,
-    RemoveFromWaitlistResult.class,
     GetClassVisitsResult.class,
-    RemoveClientsFromClassesResult.class,
-    GetCoursesResult.class,
+    GetSemestersResult.class,
+    UpdateClientVisitsResult.class,
     GetClassSchedulesResult.class,
-    GetClassesResult.class
+    RemoveClientsFromClassesResult.class,
+    GetWaitlistEntriesResult.class,
+    AddClientsToClassesResult.class,
+    RemoveFromWaitlistResult.class,
+    GetClassDescriptionsResult.class,
+    GetCoursesResult.class
 })
 @Entity(name = "MBResult")
 @Table(name = "MBRESULT")
@@ -139,7 +139,7 @@ public class MBResult
      * 
      */
     @Basic
-    @Column(name = "ERRORCODE", precision = 10, scale = 0)
+    @Column(name = "ERROR_CODE", precision = 10, scale = 0)
     public int getErrorCode() {
         return errorCode;
     }
@@ -210,7 +210,7 @@ public class MBResult
      * 
      */
     @Basic
-    @Column(name = "RESULTCOUNT", precision = 10, scale = 0)
+    @Column(name = "RESULT_COUNT", precision = 10, scale = 0)
     public int getResultCount() {
         return resultCount;
     }
@@ -228,7 +228,7 @@ public class MBResult
      * 
      */
     @Basic
-    @Column(name = "CURRENTPAGEINDEX", precision = 10, scale = 0)
+    @Column(name = "CURRENT_PAGE_INDEX", precision = 10, scale = 0)
     public int getCurrentPageIndex() {
         return currentPageIndex;
     }
@@ -246,7 +246,7 @@ public class MBResult
      * 
      */
     @Basic
-    @Column(name = "TOTALPAGECOUNT", precision = 10, scale = 0)
+    @Column(name = "TOTAL_PAGE_COUNT", precision = 10, scale = 0)
     public int getTotalPageCount() {
         return totalPageCount;
     }

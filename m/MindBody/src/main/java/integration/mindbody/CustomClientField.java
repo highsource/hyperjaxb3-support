@@ -56,7 +56,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "value"
 })
 @Entity(name = "CustomClientField")
-@Table(name = "CUSTOMCLIENTFIELD")
+@Table(name = "CUSTOM_CLIENT_FIELD")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class CustomClientField
     implements Serializable, Equals, HashCode, ToString
@@ -99,7 +99,7 @@ public class CustomClientField
      *     
      */
     @Basic
-    @Column(name = "DATATYPE", length = 255)
+    @Column(name = "DATA_TYPE", length = 255)
     public String getDataType() {
         return dataType;
     }

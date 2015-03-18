@@ -55,7 +55,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlRootElement(name = "GetClassSchedulesResponse")
 @Entity(name = "GetClassSchedulesResponse")
-@Table(name = "GETCLASSSCHEDULESRESPONSE")
+@Table(name = "GET_CLASS_SCHEDULES_RESPONSE")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class GetClassSchedulesResponse
     implements Serializable, Equals, HashCode, ToString

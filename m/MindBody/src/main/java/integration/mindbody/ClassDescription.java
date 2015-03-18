@@ -10,8 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -81,7 +82,8 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "active"
 })
 @Entity(name = "ClassDescription")
-@Table(name = "CLASSDESCRIPTION")
+@Table(name = "CLASS_DESCRIPTION")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ClassDescription
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -124,7 +126,7 @@ public class ClassDescription
      *     
      */
     @Basic
-    @Column(name = "IMAGEURL", length = 255)
+    @Column(name = "IMAGE_URL", length = 255)
     public String getImageURL() {
         return imageURL;
     }
@@ -152,7 +154,7 @@ public class ClassDescription
     @ManyToOne(targetEntity = Level.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "LEVEL__CLASSDESCRIPTION_ID")
+    @JoinColumn(name = "LEVEL__CLASS_DESCRIPTION_ID")
     public Level getLevel() {
         return level;
     }
@@ -335,7 +337,7 @@ public class ClassDescription
      *     
      */
     @Basic
-    @Column(name = "LASTUPDATED")
+    @Column(name = "LAST_UPDATED")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getLastUpdated() {
         return lastUpdated;
@@ -364,10 +366,7 @@ public class ClassDescription
     @ManyToOne(targetEntity = Program.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "PROGRAM_CLASSDESCRIPTION_ID"),
-        @JoinColumn(name = "PROGRAM_CLASSDESCRIPTION_HJID")
-    })
+    @JoinColumn(name = "PROGRAM_CLASS_DESCRIPTION_ID")
     public Program getProgram() {
         return program;
     }
@@ -395,10 +394,7 @@ public class ClassDescription
     @ManyToOne(targetEntity = SessionType.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "SESSIONTYPE_CLASSDESCRIPTION_0"),
-        @JoinColumn(name = "SESSIONTYPE_CLASSDESCRIPTION_1")
-    })
+    @JoinColumn(name = "SESSION_TYPE_CLASS_DESCRIPTI_0")
     public SessionType getSessionType() {
         return sessionType;
     }

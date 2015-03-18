@@ -55,7 +55,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlRootElement(name = "AddClientsToClasses")
 @Entity(name = "AddClientsToClasses")
-@Table(name = "ADDCLIENTSTOCLASSES")
+@Table(name = "ADD_CLIENTS_TO_CLASSES")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class AddClientsToClasses
     implements Serializable, Equals, HashCode, ToString

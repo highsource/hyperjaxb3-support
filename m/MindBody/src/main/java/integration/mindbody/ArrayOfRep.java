@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "rep"
 })
 @Entity(name = "ArrayOfRep")
-@Table(name = "ARRAYOFREP")
+@Table(name = "ARRAY_OF_REP")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfRep
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfRep
     @OneToMany(targetEntity = Rep.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "REP_ARRAYOFREP_HJID")
+    @JoinColumn(name = "REP_ARRAY_OF_REP_HJID")
     public List<Rep> getRep() {
         if (rep == null) {
             rep = new ArrayList<Rep>();

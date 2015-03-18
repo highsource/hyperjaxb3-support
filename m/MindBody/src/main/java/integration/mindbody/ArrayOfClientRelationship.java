@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "clientRelationship"
 })
 @Entity(name = "ArrayOfClientRelationship")
-@Table(name = "ARRAYOFCLIENTRELATIONSHIP")
+@Table(name = "ARRAY_OF_CLIENT_RELATIONSHIP")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfClientRelationship
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfClientRelationship
     @OneToMany(targetEntity = ClientRelationship.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CLIENTRELATIONSHIP_ARRAYOFCL_0")
+    @JoinColumn(name = "CLIENT_RELATIONSHIP_ARRAY_OF_0")
     public List<ClientRelationship> getClientRelationship() {
         if (clientRelationship == null) {
             clientRelationship = new ArrayList<ClientRelationship>();

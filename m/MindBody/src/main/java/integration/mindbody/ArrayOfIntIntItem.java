@@ -19,7 +19,7 @@ import org.jvnet.hyperjaxb3.item.Item;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity(name = "ArrayOfIntIntItem")
-@Table(name = "ARRAYOFINTINTITEM")
+@Table(name = "ARRAY_OF_INT_INT_ITEM")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfIntIntItem
     implements Serializable, Item<Integer>

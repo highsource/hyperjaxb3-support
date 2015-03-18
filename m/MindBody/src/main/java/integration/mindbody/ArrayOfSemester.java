@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "semester"
 })
 @Entity(name = "ArrayOfSemester")
-@Table(name = "ARRAYOFSEMESTER")
+@Table(name = "ARRAY_OF_SEMESTER")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfSemester
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfSemester
     @OneToMany(targetEntity = Semester.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "SEMESTER_ARRAYOFSEMESTER_HJID")
+    @JoinColumn(name = "SEMESTER_ARRAY_OF_SEMESTER_H_0")
     public List<Semester> getSemester() {
         if (semester == null) {
             semester = new ArrayList<Semester>();

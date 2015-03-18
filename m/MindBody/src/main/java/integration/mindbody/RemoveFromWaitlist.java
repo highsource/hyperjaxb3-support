@@ -57,7 +57,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlRootElement(name = "RemoveFromWaitlist")
 @Entity(name = "RemoveFromWaitlist")
-@Table(name = "REMOVEFROMWAITLIST")
+@Table(name = "REMOVE_FROM_WAITLIST")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class RemoveFromWaitlist
     implements Serializable, Equals, HashCode, ToString
@@ -80,7 +80,7 @@ public class RemoveFromWaitlist
     @ManyToOne(targetEntity = RemoveFromWaitlistRequest.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "REQUEST_REMOVEFROMWAITLIST_H_0")
+    @JoinColumn(name = "REQUEST_REMOVE_FROM_WAITLIST_0")
     public RemoveFromWaitlistRequest getRequest() {
         return request;
     }

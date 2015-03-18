@@ -10,9 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -104,8 +104,8 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "location"
 })
 @Entity(name = "ClassSchedule")
-@Table(name = "CLASSSCHEDULE")
-@IdClass(ClassScheduleId.class)
+@Table(name = "CLASS_SCHEDULE")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ClassSchedule
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -178,7 +178,7 @@ public class ClassSchedule
     @ManyToOne(targetEntity = ArrayOfClass.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "CLASSES_CLASSSCHEDULE_HJID")
+    @JoinColumn(name = "CLASSES_CLASS_SCHEDULE_HJID")
     public ArrayOfClass getClasses() {
         return classes;
     }
@@ -206,7 +206,7 @@ public class ClassSchedule
     @ManyToOne(targetEntity = ArrayOfClient.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "CLIENTS_CLASSSCHEDULE_HJID")
+    @JoinColumn(name = "CLIENTS_CLASS_SCHEDULE_HJID")
     public ArrayOfClient getClients() {
         return clients;
     }
@@ -234,7 +234,7 @@ public class ClassSchedule
     @ManyToOne(targetEntity = Course.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "COURSE_CLASSSCHEDULE_ID")
+    @JoinColumn(name = "COURSE_CLASS_SCHEDULE_ID")
     public Course getCourse() {
         return course;
     }
@@ -260,7 +260,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "SEMESTERID", precision = 10, scale = 0)
+    @Column(name = "SEMESTER_ID", precision = 10, scale = 0)
     public Integer getSemesterID() {
         return semesterID;
     }
@@ -286,7 +286,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "ISAVAILABLE")
+    @Column(name = "IS_AVAILABLE")
     public Boolean getIsAvailable() {
         return isAvailable;
     }
@@ -367,10 +367,7 @@ public class ClassSchedule
     @ManyToOne(targetEntity = ClassDescription.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "CLASSDESCRIPTION_CLASSSCHEDU_0"),
-        @JoinColumn(name = "CLASSDESCRIPTION_CLASSSCHEDU_1")
-    })
+    @JoinColumn(name = "CLASS_DESCRIPTION_CLASS_SCHE_0")
     public ClassDescription getClassDescription() {
         return classDescription;
     }
@@ -396,7 +393,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "DAYSUNDAY")
+    @Column(name = "DAY_SUNDAY")
     public Boolean getDaySunday() {
         return daySunday;
     }
@@ -422,7 +419,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "DAYMONDAY")
+    @Column(name = "DAY_MONDAY")
     public Boolean getDayMonday() {
         return dayMonday;
     }
@@ -448,7 +445,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "DAYTUESDAY")
+    @Column(name = "DAY_TUESDAY")
     public Boolean getDayTuesday() {
         return dayTuesday;
     }
@@ -474,7 +471,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "DAYWEDNESDAY")
+    @Column(name = "DAY_WEDNESDAY")
     public Boolean getDayWednesday() {
         return dayWednesday;
     }
@@ -500,7 +497,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "DAYTHURSDAY")
+    @Column(name = "DAY_THURSDAY")
     public Boolean getDayThursday() {
         return dayThursday;
     }
@@ -526,7 +523,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "DAYFRIDAY")
+    @Column(name = "DAY_FRIDAY")
     public Boolean getDayFriday() {
         return dayFriday;
     }
@@ -552,7 +549,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "DAYSATURDAY")
+    @Column(name = "DAY_SATURDAY")
     public Boolean getDaySaturday() {
         return daySaturday;
     }
@@ -578,7 +575,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "ALLOWOPENENROLLMENT")
+    @Column(name = "ALLOW_OPEN_ENROLLMENT")
     public Boolean getAllowOpenEnrollment() {
         return allowOpenEnrollment;
     }
@@ -604,7 +601,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "ALLOWDATEFORWARDENROLLMENT")
+    @Column(name = "ALLOW_DATE_FORWARD_ENROLLMENT")
     public Boolean getAllowDateForwardEnrollment() {
         return allowDateForwardEnrollment;
     }
@@ -630,7 +627,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "STARTTIME")
+    @Column(name = "START_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getStartTime() {
         return startTime;
@@ -657,7 +654,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "ENDTIME")
+    @Column(name = "END_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEndTime() {
         return endTime;
@@ -684,7 +681,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "STARTDATE")
+    @Column(name = "START_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getStartDate() {
         return startDate;
@@ -711,7 +708,7 @@ public class ClassSchedule
      *     
      */
     @Basic
-    @Column(name = "ENDDATE")
+    @Column(name = "END_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEndDate() {
         return endDate;
@@ -740,10 +737,7 @@ public class ClassSchedule
     @ManyToOne(targetEntity = Staff.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "STAFF_CLASSSCHEDULE_ID"),
-        @JoinColumn(name = "STAFF_CLASSSCHEDULE_HJID")
-    })
+    @JoinColumn(name = "STAFF_CLASS_SCHEDULE_ID")
     public Staff getStaff() {
         return staff;
     }
@@ -771,10 +765,7 @@ public class ClassSchedule
     @ManyToOne(targetEntity = Location.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "LOCATION__CLASSSCHEDULE_ID"),
-        @JoinColumn(name = "LOCATION__CLASSSCHEDULE_HJID")
-    })
+    @JoinColumn(name = "LOCATION__CLASS_SCHEDULE_ID")
     public Location getLocation() {
         return location;
     }

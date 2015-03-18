@@ -57,6 +57,12 @@
         <jaxb:bindings node="//s:element[@name='ID']">
             <hj:id/>
         </jaxb:bindings>
+        <jaxb:bindings node="s:complexType[@name='MBObject']">
+            <hj:mapped-superclass/>
+        </jaxb:bindings>
+        <jaxb:bindings node="s:complexType[@name='ScheduleItem']">
+            <hj:mapped-superclass/>
+        </jaxb:bindings>
 
         <jaxb:bindings node="s:simpleType[(contains(@name, 'Add') or contains(@name, 'Get') or contains(@name, 'Update') or contains(@name, 'Delete') or contains(@name, 'Upload') or contains(@name, 'Send')  or contains(@name, 'Validate') )]">
            <hj:ignored/>

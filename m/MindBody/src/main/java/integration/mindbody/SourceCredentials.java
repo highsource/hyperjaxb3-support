@@ -60,7 +60,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "siteIDs"
 })
 @Entity(name = "SourceCredentials")
-@Table(name = "SOURCECREDENTIALS")
+@Table(name = "SOURCE_CREDENTIALS")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class SourceCredentials
     implements Serializable, Equals, HashCode, ToString
@@ -85,7 +85,7 @@ public class SourceCredentials
      *     
      */
     @Basic
-    @Column(name = "SOURCENAME", length = 255)
+    @Column(name = "SOURCE_NAME", length = 255)
     public String getSourceName() {
         return sourceName;
     }
@@ -139,7 +139,7 @@ public class SourceCredentials
     @ManyToOne(targetEntity = ArrayOfInt.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "SITEIDS_SOURCECREDENTIALS_HJ_0")
+    @JoinColumn(name = "SITE_IDS_SOURCE_CREDENTIALS__0")
     public ArrayOfInt getSiteIDs() {
         return siteIDs;
     }

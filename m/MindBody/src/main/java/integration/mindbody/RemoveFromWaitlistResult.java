@@ -38,7 +38,7 @@ import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RemoveFromWaitlistResult")
 @Entity(name = "RemoveFromWaitlistResult")
-@Table(name = "REMOVEFROMWAITLISTRESULT")
+@Table(name = "REMOVE_FROM_WAITLIST_RESULT")
 public class RemoveFromWaitlistResult
     extends MBResult
     implements Serializable, Equals, HashCode, ToString

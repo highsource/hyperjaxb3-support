@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "clazz"
 })
 @Entity(name = "ArrayOfClass")
-@Table(name = "ARRAYOFCLASS")
+@Table(name = "ARRAY_OF_CLASS")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfClass
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfClass
     @OneToMany(targetEntity = Class.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CLAZZ_ARRAYOFCLASS_HJID")
+    @JoinColumn(name = "CLAZZ_ARRAY_OF_CLASS_HJID")
     public List<Class> getClazz() {
         if (clazz == null) {
             clazz = new ArrayList<Class>();

@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "visit"
 })
 @Entity(name = "ArrayOfVisit")
-@Table(name = "ARRAYOFVISIT")
+@Table(name = "ARRAY_OF_VISIT")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfVisit
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfVisit
     @OneToMany(targetEntity = Visit.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "VISIT_ARRAYOFVISIT_HJID")
+    @JoinColumn(name = "VISIT_ARRAY_OF_VISIT_HJID")
     public List<Visit> getVisit() {
         if (visit == null) {
             visit = new ArrayList<Visit>();

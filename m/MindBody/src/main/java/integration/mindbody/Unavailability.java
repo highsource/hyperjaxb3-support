@@ -7,6 +7,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -60,6 +62,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Unavailability")
 @Table(name = "UNAVAILABILITY")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Unavailability
     extends ScheduleItem
     implements Serializable, Equals, HashCode, ToString
@@ -106,7 +109,7 @@ public class Unavailability
      *     
      */
     @Basic
-    @Column(name = "STARTDATETIME")
+    @Column(name = "START_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getStartDateTime() {
         return startDateTime;
@@ -133,7 +136,7 @@ public class Unavailability
      *     
      */
     @Basic
-    @Column(name = "ENDDATETIME")
+    @Column(name = "END_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEndDateTime() {
         return endDateTime;

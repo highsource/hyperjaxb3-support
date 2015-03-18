@@ -19,7 +19,7 @@ import org.jvnet.hyperjaxb3.item.Item;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity(name = "ArrayOfStringStringItem")
-@Table(name = "ARRAYOFSTRINGSTRINGITEM")
+@Table(name = "ARRAY_OF_STRING_STRING_ITEM")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfStringStringItem
     implements Serializable, Item<String>

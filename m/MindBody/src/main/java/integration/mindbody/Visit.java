@@ -10,8 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -90,6 +91,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Visit")
 @Table(name = "VISIT")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Visit
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -168,7 +170,7 @@ public class Visit
      *     
      */
     @Basic
-    @Column(name = "CLASSID", precision = 10, scale = 0)
+    @Column(name = "CLASS_ID", precision = 10, scale = 0)
     public Integer getClassID() {
         return classID;
     }
@@ -194,7 +196,7 @@ public class Visit
      *     
      */
     @Basic
-    @Column(name = "APPOINTMENTID", precision = 10, scale = 0)
+    @Column(name = "APPOINTMENT_ID", precision = 10, scale = 0)
     public Integer getAppointmentID() {
         return appointmentID;
     }
@@ -220,7 +222,7 @@ public class Visit
      *     
      */
     @Basic
-    @Column(name = "APPOINTMENTGENDERPREFERENCE", length = 255)
+    @Column(name = "APPOINTMENT_GENDER_PREFERENCE", length = 255)
     public String getAppointmentGenderPreference() {
         return appointmentGenderPreference;
     }
@@ -246,7 +248,7 @@ public class Visit
      *     
      */
     @Basic
-    @Column(name = "STARTDATETIME")
+    @Column(name = "START_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getStartDateTime() {
         return startDateTime;
@@ -273,7 +275,7 @@ public class Visit
      *     
      */
     @Basic
-    @Column(name = "LATECANCELLED")
+    @Column(name = "LATE_CANCELLED")
     public Boolean getLateCancelled() {
         return lateCancelled;
     }
@@ -299,7 +301,7 @@ public class Visit
      *     
      */
     @Basic
-    @Column(name = "ENDDATETIME")
+    @Column(name = "END_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEndDateTime() {
         return endDateTime;
@@ -354,10 +356,7 @@ public class Visit
     @ManyToOne(targetEntity = Staff.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "STAFF_VISIT_ID"),
-        @JoinColumn(name = "STAFF_VISIT_HJID")
-    })
+    @JoinColumn(name = "STAFF_VISIT_ID")
     public Staff getStaff() {
         return staff;
     }
@@ -385,10 +384,7 @@ public class Visit
     @ManyToOne(targetEntity = Location.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "LOCATION__VISIT_ID"),
-        @JoinColumn(name = "LOCATION__VISIT_HJID")
-    })
+    @JoinColumn(name = "LOCATION__VISIT_ID")
     public Location getLocation() {
         return location;
     }
@@ -416,10 +412,7 @@ public class Visit
     @ManyToOne(targetEntity = Client.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "CLIENT_VISIT_ID"),
-        @JoinColumn(name = "CLIENT_VISIT_HJID")
-    })
+    @JoinColumn(name = "CLIENT_VISIT_ID")
     public Client getClient() {
         return client;
     }
@@ -445,7 +438,7 @@ public class Visit
      *     
      */
     @Basic
-    @Column(name = "WEBSIGNUP")
+    @Column(name = "WEB_SIGNUP")
     public Boolean getWebSignup() {
         return webSignup;
     }
@@ -498,7 +491,7 @@ public class Visit
      *     
      */
     @Basic
-    @Column(name = "SIGNEDIN")
+    @Column(name = "SIGNED_IN")
     public Boolean getSignedIn() {
         return signedIn;
     }
@@ -524,7 +517,7 @@ public class Visit
      *     
      */
     @Basic
-    @Column(name = "MAKEUP")
+    @Column(name = "MAKE_UP")
     public Boolean getMakeUp() {
         return makeUp;
     }
@@ -552,10 +545,7 @@ public class Visit
     @ManyToOne(targetEntity = ClientService.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "SERVICE_VISIT_ID"),
-        @JoinColumn(name = "SERVICE_VISIT_HJID")
-    })
+    @JoinColumn(name = "SERVICE_VISIT_ID")
     public ClientService getService() {
         return service;
     }

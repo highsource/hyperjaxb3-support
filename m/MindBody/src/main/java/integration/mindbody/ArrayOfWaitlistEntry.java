@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "waitlistEntry"
 })
 @Entity(name = "ArrayOfWaitlistEntry")
-@Table(name = "ARRAYOFWAITLISTENTRY")
+@Table(name = "ARRAY_OF_WAITLIST_ENTRY")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfWaitlistEntry
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfWaitlistEntry
     @OneToMany(targetEntity = WaitlistEntry.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "WAITLISTENTRY_ARRAYOFWAITLIS_0")
+    @JoinColumn(name = "WAITLIST_ENTRY_ARRAY_OF_WAIT_0")
     public List<WaitlistEntry> getWaitlistEntry() {
         if (waitlistEntry == null) {
             waitlistEntry = new ArrayList<WaitlistEntry>();

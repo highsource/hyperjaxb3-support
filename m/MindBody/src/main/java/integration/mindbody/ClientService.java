@@ -10,8 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -77,7 +78,8 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "program"
 })
 @Entity(name = "ClientService")
-@Table(name = "CLIENTSERVICE")
+@Table(name = "CLIENT_SERVICE")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ClientService
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -253,7 +255,7 @@ public class ClientService
      *     
      */
     @Basic
-    @Column(name = "PAYMENTDATE")
+    @Column(name = "PAYMENT_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getPaymentDate() {
         return paymentDate;
@@ -280,7 +282,7 @@ public class ClientService
      *     
      */
     @Basic
-    @Column(name = "ACTIVEDATE")
+    @Column(name = "ACTIVE_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getActiveDate() {
         return activeDate;
@@ -307,7 +309,7 @@ public class ClientService
      *     
      */
     @Basic
-    @Column(name = "EXPIRATIONDATE")
+    @Column(name = "EXPIRATION_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getExpirationDate() {
         return expirationDate;
@@ -336,10 +338,7 @@ public class ClientService
     @ManyToOne(targetEntity = Program.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "PROGRAM_CLIENTSERVICE_ID"),
-        @JoinColumn(name = "PROGRAM_CLIENTSERVICE_HJID")
-    })
+    @JoinColumn(name = "PROGRAM_CLIENT_SERVICE_ID")
     public Program getProgram() {
         return program;
     }

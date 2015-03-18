@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "resource"
 })
 @Entity(name = "ArrayOfResource")
-@Table(name = "ARRAYOFRESOURCE")
+@Table(name = "ARRAY_OF_RESOURCE")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfResource
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfResource
     @OneToMany(targetEntity = Resource.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "RESOURCE__ARRAYOFRESOURCE_HJ_0")
+    @JoinColumn(name = "RESOURCE__ARRAY_OF_RESOURCE__0")
     public List<Resource> getResource() {
         if (resource == null) {
             resource = new ArrayList<Resource>();

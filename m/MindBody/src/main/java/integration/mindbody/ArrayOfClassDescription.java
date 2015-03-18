@@ -58,7 +58,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "classDescription"
 })
 @Entity(name = "ArrayOfClassDescription")
-@Table(name = "ARRAYOFCLASSDESCRIPTION")
+@Table(name = "ARRAY_OF_CLASS_DESCRIPTION")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfClassDescription
     implements Serializable, Equals, HashCode, ToString
@@ -95,7 +95,7 @@ public class ArrayOfClassDescription
     @OneToMany(targetEntity = ClassDescription.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CLASSDESCRIPTION_ARRAYOFCLAS_0")
+    @JoinColumn(name = "CLASS_DESCRIPTION_ARRAY_OF_C_0")
     public List<ClassDescription> getClassDescription() {
         if (classDescription == null) {
             classDescription = new ArrayList<ClassDescription>();

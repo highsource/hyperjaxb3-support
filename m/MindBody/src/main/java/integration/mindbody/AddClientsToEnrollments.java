@@ -55,7 +55,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlRootElement(name = "AddClientsToEnrollments")
 @Entity(name = "AddClientsToEnrollments")
-@Table(name = "ADDCLIENTSTOENROLLMENTS")
+@Table(name = "ADD_CLIENTS_TO_ENROLLMENTS")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class AddClientsToEnrollments
     implements Serializable, Equals, HashCode, ToString

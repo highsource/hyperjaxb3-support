@@ -57,7 +57,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlRootElement(name = "RemoveClientsFromClasses")
 @Entity(name = "RemoveClientsFromClasses")
-@Table(name = "REMOVECLIENTSFROMCLASSES")
+@Table(name = "REMOVE_CLIENTS_FROM_CLASSES")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class RemoveClientsFromClasses
     implements Serializable, Equals, HashCode, ToString
@@ -80,7 +80,7 @@ public class RemoveClientsFromClasses
     @ManyToOne(targetEntity = RemoveClientsFromClassesRequest.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "REQUEST_REMOVECLIENTSFROMCLA_0")
+    @JoinColumn(name = "REQUEST_REMOVE_CLIENTS_FROM__0")
     public RemoveClientsFromClassesRequest getRequest() {
         return request;
     }

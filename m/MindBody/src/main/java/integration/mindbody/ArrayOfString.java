@@ -60,7 +60,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "string"
 })
 @Entity(name = "ArrayOfString")
-@Table(name = "ARRAYOFSTRING")
+@Table(name = "ARRAY_OF_STRING")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfString
     implements Serializable, Equals, HashCode, ToString
@@ -204,7 +204,7 @@ public class ArrayOfString
     @OneToMany(targetEntity = ArrayOfStringStringItem.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "STRINGITEMS_ARRAYOFSTRING_HJ_0")
+    @JoinColumn(name = "STRING_ITEMS_ARRAY_OF_STRING_0")
     public List<ArrayOfStringStringItem> getStringItems() {
         if (this.stringItems == null) {
             this.stringItems = new ArrayList<ArrayOfStringStringItem>();

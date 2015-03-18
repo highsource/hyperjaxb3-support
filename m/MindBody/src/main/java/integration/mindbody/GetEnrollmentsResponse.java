@@ -55,7 +55,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlRootElement(name = "GetEnrollmentsResponse")
 @Entity(name = "GetEnrollmentsResponse")
-@Table(name = "GETENROLLMENTSRESPONSE")
+@Table(name = "GET_ENROLLMENTS_RESPONSE")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class GetEnrollmentsResponse
     implements Serializable, Equals, HashCode, ToString

@@ -10,8 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -106,6 +107,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Class")
 @Table(name = "CLASS_")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Class
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -174,7 +176,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "CLASSSCHEDULEID", precision = 10, scale = 0)
+    @Column(name = "CLASS_SCHEDULE_ID", precision = 10, scale = 0)
     public Integer getClassScheduleID() {
         return classScheduleID;
     }
@@ -258,10 +260,7 @@ public class Class
     @ManyToOne(targetEntity = Location.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "LOCATION__CLASS__ID"),
-        @JoinColumn(name = "LOCATION__CLASS__HJID")
-    })
+    @JoinColumn(name = "LOCATION__CLASS__ID")
     public Location getLocation() {
         return location;
     }
@@ -289,10 +288,7 @@ public class Class
     @ManyToOne(targetEntity = Resource.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "RESOURCE__CLASS__ID"),
-        @JoinColumn(name = "RESOURCE__CLASS__HJID")
-    })
+    @JoinColumn(name = "RESOURCE__CLASS__ID")
     public Resource getResource() {
         return resource;
     }
@@ -318,7 +314,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "MAXCAPACITY", precision = 10, scale = 0)
+    @Column(name = "MAX_CAPACITY", precision = 10, scale = 0)
     public Integer getMaxCapacity() {
         return maxCapacity;
     }
@@ -344,7 +340,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "WEBCAPACITY", precision = 10, scale = 0)
+    @Column(name = "WEB_CAPACITY", precision = 10, scale = 0)
     public Integer getWebCapacity() {
         return webCapacity;
     }
@@ -370,7 +366,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "TOTALBOOKED", precision = 10, scale = 0)
+    @Column(name = "TOTAL_BOOKED", precision = 10, scale = 0)
     public Integer getTotalBooked() {
         return totalBooked;
     }
@@ -396,7 +392,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "TOTALBOOKEDWAITLIST", precision = 10, scale = 0)
+    @Column(name = "TOTAL_BOOKED_WAITLIST", precision = 10, scale = 0)
     public Integer getTotalBookedWaitlist() {
         return totalBookedWaitlist;
     }
@@ -422,7 +418,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "WEBBOOKED", precision = 10, scale = 0)
+    @Column(name = "WEB_BOOKED", precision = 10, scale = 0)
     public Integer getWebBooked() {
         return webBooked;
     }
@@ -448,7 +444,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "SEMESTERID", precision = 10, scale = 0)
+    @Column(name = "SEMESTER_ID", precision = 10, scale = 0)
     public Integer getSemesterID() {
         return semesterID;
     }
@@ -474,7 +470,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "ISCANCELED")
+    @Column(name = "IS_CANCELED")
     public Boolean getIsCanceled() {
         return isCanceled;
     }
@@ -552,7 +548,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "ISWAITLISTAVAILABLE")
+    @Column(name = "IS_WAITLIST_AVAILABLE")
     public Boolean getIsWaitlistAvailable() {
         return isWaitlistAvailable;
     }
@@ -578,7 +574,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "ISENROLLED")
+    @Column(name = "IS_ENROLLED")
     public Boolean getIsEnrolled() {
         return isEnrolled;
     }
@@ -604,7 +600,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "HIDECANCEL")
+    @Column(name = "HIDE_CANCEL")
     public Boolean getHideCancel() {
         return hideCancel;
     }
@@ -683,7 +679,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "ISAVAILABLE")
+    @Column(name = "IS_AVAILABLE")
     public Boolean getIsAvailable() {
         return isAvailable;
     }
@@ -709,7 +705,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "STARTDATETIME")
+    @Column(name = "START_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getStartDateTime() {
         return startDateTime;
@@ -736,7 +732,7 @@ public class Class
      *     
      */
     @Basic
-    @Column(name = "ENDDATETIME")
+    @Column(name = "END_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEndDateTime() {
         return endDateTime;
@@ -765,10 +761,7 @@ public class Class
     @ManyToOne(targetEntity = ClassDescription.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "CLASSDESCRIPTION_CLASS__ID"),
-        @JoinColumn(name = "CLASSDESCRIPTION_CLASS__HJID")
-    })
+    @JoinColumn(name = "CLASS_DESCRIPTION_CLASS__ID")
     public ClassDescription getClassDescription() {
         return classDescription;
     }
@@ -796,10 +789,7 @@ public class Class
     @ManyToOne(targetEntity = Staff.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "STAFF_CLASS__ID"),
-        @JoinColumn(name = "STAFF_CLASS__HJID")
-    })
+    @JoinColumn(name = "STAFF_CLASS__ID")
     public Staff getStaff() {
         return staff;
     }

@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -214,7 +213,7 @@ public class Course
      *     
      */
     @Basic
-    @Column(name = "STARTDATE")
+    @Column(name = "START_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getStartDate() {
         return startDate;
@@ -241,7 +240,7 @@ public class Course
      *     
      */
     @Basic
-    @Column(name = "ENDDATE")
+    @Column(name = "END_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getEndDate() {
         return endDate;
@@ -270,10 +269,7 @@ public class Course
     @ManyToOne(targetEntity = Location.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "LOCATION__COURSE_ID"),
-        @JoinColumn(name = "LOCATION__COURSE_HJID")
-    })
+    @JoinColumn(name = "LOCATION__COURSE_ID")
     public Location getLocation() {
         return location;
     }
@@ -301,10 +297,7 @@ public class Course
     @ManyToOne(targetEntity = Staff.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "ORGANIZER_COURSE_ID"),
-        @JoinColumn(name = "ORGANIZER_COURSE_HJID")
-    })
+    @JoinColumn(name = "ORGANIZER_COURSE_ID")
     public Staff getOrganizer() {
         return organizer;
     }
@@ -332,10 +325,7 @@ public class Course
     @ManyToOne(targetEntity = Program.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "PROGRAM_COURSE_ID"),
-        @JoinColumn(name = "PROGRAM_COURSE_HJID")
-    })
+    @JoinColumn(name = "PROGRAM_COURSE_ID")
     public Program getProgram() {
         return program;
     }
@@ -361,7 +351,7 @@ public class Course
      *     
      */
     @Basic
-    @Column(name = "IMAGEURL", length = 255)
+    @Column(name = "IMAGE_URL", length = 255)
     public String getImageURL() {
         return imageURL;
     }

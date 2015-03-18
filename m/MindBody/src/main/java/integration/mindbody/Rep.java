@@ -6,9 +6,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -55,7 +55,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @Entity(name = "Rep")
 @Table(name = "REP")
-@IdClass(RepId.class)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Rep
     extends MBObject
     implements Serializable, Equals, HashCode, ToString
@@ -96,10 +96,7 @@ public class Rep
     @ManyToOne(targetEntity = Staff.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumns({
-        @JoinColumn(name = "STAFF_REP_ID"),
-        @JoinColumn(name = "STAFF_REP_HJID")
-    })
+    @JoinColumn(name = "STAFF_REP_ID")
     public Staff getStaff() {
         return staff;
     }

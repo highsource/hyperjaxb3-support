@@ -24,7 +24,7 @@ import org.jvnet.hyperjaxb3.item.Item;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity(name = "ArrayOfDateTimeDateTimeItem")
-@Table(name = "ARRAYOFDATETIMEDATETIMEITEM")
+@Table(name = "ARRAY_OF_DATE_TIME_DATE_TIME_0")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ArrayOfDateTimeDateTimeItem
     implements Serializable, Item<Date>

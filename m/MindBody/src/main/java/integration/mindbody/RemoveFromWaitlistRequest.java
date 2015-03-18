@@ -48,7 +48,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
     "waitlistEntryIDs"
 })
 @Entity(name = "RemoveFromWaitlistRequest")
-@Table(name = "REMOVEFROMWAITLISTREQUEST")
+@Table(name = "REMOVE_FROM_WAITLIST_REQUEST")
 public class RemoveFromWaitlistRequest
     extends MBRequest
     implements Serializable, Equals, HashCode, ToString
@@ -69,7 +69,7 @@ public class RemoveFromWaitlistRequest
     @ManyToOne(targetEntity = ArrayOfInt.class, cascade = {
         CascadeType.ALL
     })
-    @JoinColumn(name = "WAITLISTENTRYIDS_REMOVEFROMW_0")
+    @JoinColumn(name = "WAITLIST_ENTRY_IDS_REMOVE_FR_0")
     public ArrayOfInt getWaitlistEntryIDs() {
         return waitlistEntryIDs;
     }
