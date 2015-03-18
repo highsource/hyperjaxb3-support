@@ -1,0 +1,72 @@
+<!--wsdlLocation="ClassService.wsdl"-->
+<!--wsdlLocation="ClientService.wsdl"-->
+<jaxws:bindings
+
+        xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+        xmlns:s="http://www.w3.org/2001/XMLSchema"
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+        xmlns:hj="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations"
+        xmlns:orm="http://java.sun.com/xml/ns/persistence/orm"
+        jaxb:extensionBindingPrefixes="xjc hj orm"
+        xmlns:test="urn:test">
+
+
+<!--
+    <jaxws:bindings node="wsdl:definitions/wsdl:service[@name='Class_x0020_Service']">
+        <jaxws:class name="ClassService"/>
+    </jaxws:bindings>
+    <jaxws:bindings node="wsdl:definitions/wsdl:service/wsdl:port[@name='Class_x0020_ServiceSoap']">
+        <jaxws:class name="ClassServiceSoap"/>
+    </jaxws:bindings>
+-->
+
+
+    <jaxws:bindings node="wsdl:definitions/wsdl:types/s:schema" >
+        <jaxb:globalBindings generateElementProperty="false" localScoping="toplevel" generateIsSetMethod="false" >
+            <jaxb:javaType name="java.util.Date" xmlType="s:dateTime"
+                           parseMethod="org.apache.cxf.tools.common.DataTypeAdapter.parseDateTime"
+                           printMethod="org.apache.cxf.tools.common.DataTypeAdapter.printDateTime" />
+            <jaxb:javaType name="java.util.Date" xmlType="s:date"
+                           parseMethod="org.apache.cxf.tools.common.DataTypeAdapter.parseDate"
+                           printMethod="org.apache.cxf.tools.common.DataTypeAdapter.printDate" />
+            <jaxb:serializable uid="1"/>
+
+        </jaxb:globalBindings>
+
+        <hj:persistence>
+            <hj:default-one-to-many fetch="EAGER"  />
+        </hj:persistence>
+        <jaxws:enableWrapperStyle>
+            false
+        </jaxws:enableWrapperStyle>
+
+
+        <jaxb:bindings node="s:complexType/s:complexContent/s:extension/s:sequence/s:element[@name='Description']">
+            <hj:basic>
+                <orm:column length="2500"/>
+            </hj:basic>
+        </jaxb:bindings>
+        <jaxb:bindings node="s:complexType/s:complexContent/s:extension/s:sequence/s:element[@name='Bio']">
+            <hj:basic>
+                <orm:column length="750"/>
+            </hj:basic>
+        </jaxb:bindings>
+
+        <jaxb:bindings node="//s:element[@name='ID']">
+            <hj:id/>
+        </jaxb:bindings>
+
+        <jaxb:bindings node="s:simpleType[(contains(@name, 'Add') or contains(@name, 'Get') or contains(@name, 'Update') or contains(@name, 'Delete') or contains(@name, 'Upload') or contains(@name, 'Send')  or contains(@name, 'Validate') )]">
+           <hj:ignored/>
+        </jaxb:bindings>
+        <jaxb:bindings node="s:complexType[(contains(@name, 'Add') or contains(@name, 'Get') or contains(@name, 'Update') or contains(@name, 'Delete') or contains(@name, 'Upload') or contains(@name, 'Send')  or contains(@name, 'Validate') )]">
+            <hj:ignored/>
+        </jaxb:bindings>
+        <jaxb:bindings node="s:element[(contains(@name, 'Add') or contains(@name, 'Get') or contains(@name, 'Update') or contains(@name, 'Delete') or contains(@name, 'Upload') or contains(@name, 'Send')  or contains(@name, 'Validate') )]">
+            <hj:ignored/>
+        </jaxb:bindings>
+    </jaxws:bindings>
+</jaxws:bindings>
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <GetClassesResponse xmlns="http://clients.mindbodyonline.com/api/0_5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <GetClassesResult>
+                <Status>Success</Status>
+                <ErrorCode>200</ErrorCode>
+                <XMLDetail>Full</XMLDetail>
+                <ResultCount>1</ResultCount>
+                <CurrentPageIndex>0</CurrentPageIndex>
+                <TotalPageCount>1</TotalPageCount>
+                <Classes>
+                    <Class>
+                        <ClassScheduleID>2266</ClassScheduleID>
+                        <Location>
+                            <SiteID>-99</SiteID>
+                            <BusinessDescription>"The MINDBODY Health Club Demo is awesome." - Anonymous (but probably someone cool and smart)</BusinessDescription>
+                            <AdditionalImageURLs />
+                            <FacilitySquareFeet xsi:nil="true" />
+                            <TreatmentRooms xsi:nil="true" />
+                            <HasClasses>false</HasClasses>
+                            <PhoneExtension />
+                            <ID>2</ID>
+                            <Name>Fitville</Name>
+                            <Address>870 Broad St</Address>
+                            <Address2>San Luis Obispo, CA 93401</Address2>
+                            <Tax1>0.08</Tax1>
+                            <Tax2>0.05</Tax2>
+                            <Tax3>0.05</Tax3>
+                            <Tax4>0</Tax4>
+                            <Tax5>0</Tax5>
+                            <Phone>8777554279</Phone>
+                            <City>San Luis Obispo</City>
+                            <StateProvCode>CA</StateProvCode>
+                            <PostalCode>93401</PostalCode>
+                            <Latitude>35.281397</Latitude>
+                            <Longitude>-120.665431</Longitude>
+                        </Location>
+                        <MaxCapacity xsi:nil="true" />
+                        <WebCapacity xsi:nil="true" />
+                        <TotalBooked xsi:nil="true" />
+                        <TotalBookedWaitlist xsi:nil="true" />
+                        <WebBooked xsi:nil="true" />
+                        <SemesterID xsi:nil="true" />
+                        <IsCanceled>true</IsCanceled>
+                        <Substitute>true</Substitute>
+                        <Active>true</Active>
+                        <IsWaitlistAvailable>false</IsWaitlistAvailable>
+                        <IsEnrolled>false</IsEnrolled>
+                        <HideCancel>false</HideCancel>
+                        <ID>25771</ID>
+                        <IsAvailable>false</IsAvailable>
+                        <StartDateTime>2015-03-12T15:00:00</StartDateTime>
+                        <EndDateTime>2015-03-12T16:00:00</EndDateTime>
+                        <ClassDescription>
+                            <ImageURL>https://clients.mindbodyonline.com/studios/DemoAPISandboxRestore/reservations/348.jpg?imageversion=1426127164</ImageURL>
+                            <Level>
+                                <ID>6</ID>
+                                <Name>Advanced</Name>
+                            </Level>
+                            <ID>348</ID>
+                            <Name>SergiiNewClass</Name>
+                            <Description>SergiiNewClass</Description>
+                            <Prereq />
+                            <Notes />
+                            <LastUpdated>2015-03-12T01:37:43</LastUpdated>
+                            <Program>
+                                <ID>31</ID>
+                                <Name>ShapovalService</Name>
+                                <ScheduleType>DropIn</ScheduleType>
+                                <CancelOffset>0</CancelOffset>
+                            </Program>
+                            <SessionType>
+                                <DefaultTimeLength xsi:nil="true" />
+                                <ProgramID>31</ProgramID>
+                                <NumDeducted>1</NumDeducted>
+                                <ID>270</ID>
+                                <Name>SoMuchMore</Name>
+                            </SessionType>
+                        </ClassDescription>
+                        <Staff>
+                            <SortOrder>0</SortOrder>
+                            <ID>-1</ID>
+                            <Name>Catherine Cancelled</Name>
+                            <FirstName>Catherine</FirstName>
+                            <LastName>Cancelled</LastName>
+                            <isMale>false</isMale>
+                        </Staff>
+                    </Class>
+                </Classes>
+            </GetClassesResult>
+        </GetClassesResponse>

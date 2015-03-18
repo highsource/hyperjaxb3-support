@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <context:component-scan base-package="integration.mindbody"/>
+    <jaxws:endpoint id="ClassesService"
+                    implementor="integration.mindbody.ClientX0020ServiceSoapImpl"
+                    address="https://api.mindbodyonline.com/0_5/ClassService.asmx" wsdlLocation="https://api.mindbodyonline.com/0_5/ClassService.asmx?WSDL">
+        <jaxws:properties>
+            <entry key="schema-validation-enabled" value="true" />
+
+        </jaxws:properties>
+        <jaxws:inInterceptors>
+            <ref bean="validationInInterceptor" />
+        </jaxws:inInterceptors>
+        <jaxws:outInterceptors>
+            <ref bean="validationOutInterceptor"/>
+        </jaxws:outInterceptors>
+
+    </jaxws:endpoint>
+
+    <bean id="validationProvider" class="org.apache.cxf.validation.BeanValidationProvider" />
+
+    <bean id="validationInInterceptor" class="org.apache.cxf.jaxrs.validation.JAXRSBeanValidationInInterceptor">
+        <property name="provider" ref="validationProvider" />
+    </bean>
+
+    <bean id="validationOutInterceptor" class="org.apache.cxf.jaxrs.validation.JAXRSBeanValidationOutInterceptor">
+        <property name="provider" ref="validationProvider" />
+    </bean>
+
+
+</beans>
