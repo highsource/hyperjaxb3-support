@@ -1,14 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>MindBodyCXF</groupId>
-  <artifactId>CXFSpring</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>CXFSpring Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>MindBodyCXF</groupId>
+    <artifactId>CXFSpring</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>CXFSpring Maven Webapp</name>
+    <url>http://maven.apache.org</url>
     <properties>
-        <cxf.version>2.5.6</cxf.version>
+        <cxf.version>3.0.4</cxf.version>
         <hibernate-jpa-2.1-api.version>1.0.0.Final</hibernate-jpa-2.1-api.version>
         <hibernate-entitymanager.version>4.3.8.Final</hibernate-entitymanager.version>
         <hyperjaxb3-ejb.version>0.6.0</hyperjaxb3-ejb.version>
@@ -17,50 +17,51 @@
     </properties>
     <dependencies>
         <!-- Spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>3.0.1.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>3.0.1.RELEASE</version>
-        </dependency>
 
         <!-- Apache CXF -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
             <version>${cxf.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-beans</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-context</artifactId>
-                </exclusion>
-
-            </exclusions>
+            <!--
+                        <exclusions>
+                            <exclusion>
+                                <artifactId>woodstox-core-asl</artifactId>
+                                <groupId>org.codehaus.woodstox</groupId>
+                            </exclusion>
+                            <exclusion>
+                                <artifactId>xmlschema-core</artifactId>
+                                <groupId>org.apache.ws.xmlschema</groupId>
+                            </exclusion>
+                        </exclusions>
+            -->
 
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-bundle</artifactId>
+            <version>2.7.15</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-tools-common</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http</artifactId>
             <version>${cxf.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-web</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-databinding-jaxb</artifactId>
@@ -82,13 +83,12 @@
             <groupId>org.jvnet.hyperjaxb3</groupId>
             <artifactId>hyperjaxb3-ejb-runtime</artifactId>
             <version>${hyperjaxb3-ejb.version}</version>
-        </dependency>
-        <!-- HSQLDB -->
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>${hsqldb.version}</version>
-            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>persistence-api</artifactId>
+                    <groupId>javax.persistence</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!--PostgresSQL-->
@@ -104,29 +104,6 @@
             <version>1.6.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.1.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>logkit</groupId>
-                    <artifactId>logkit</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>avalon-framework</groupId>
-                    <artifactId>avalon-framework</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <!-- Testing -->
         <dependency>
             <groupId>junit</groupId>
@@ -134,51 +111,35 @@
             <version>4.7</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>3.0.1.RELEASE</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hisrc.hifaces20</groupId>
-            <artifactId>hifaces20-testing</artifactId>
-            <version>0.1.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-core</artifactId>
             <version>3.0.4</version>
         </dependency>
+
         <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-client</artifactId>
-            <version>3.0.4</version>
-        </dependency>
-        <!--String processing-->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>18.0</version>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.3</version>
         </dependency>
         <dependency>
-            <groupId>org.jadira.usertype</groupId>
-            <artifactId>usertype.core</artifactId>
-            <version>3.0.0.CR1</version>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.7</version>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>[0.4, 0.5)</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.stripe</groupId>
+            <artifactId>stripe-java</artifactId>
+            <version>1.21.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+        </dependency>
 
     </dependencies>
     <build>
@@ -242,34 +203,32 @@
                 <configuration>
                     <sourceRoot>${project.build.sourceDirectory}</sourceRoot>
                     <defaultOptions>
+<!--
                         <extraargs>
                             <extraarg>-p</extraarg>
                             <extraarg>http://www.w3.org/2001/XMLSchema=integration.mindbody</extraarg>
                             <extraarg>-p</extraarg>
                             <extraarg>http://clients.mindbodyonline.com/api/0_5=integration.mindbody</extraarg>
+                            <extraarg>-p</extraarg>
+                            <extraarg>http://clients.mindbodyonline.com/API/0_4=integration.mindbody</extraarg>
                         </extraargs>
+-->
                     </defaultOptions>
                     <wsdlOptions>
                         <wsdlOption>
-                            <!--convert it separately and change also separately binding.xjb and binding.xml-->
-                            <!--<wsdl>${basedir}/src/main/wsdl/ClassService.wsdl</wsdl>-->
-                            <!--<wsdl>https://api.mindbodyonline.com/0_5/ClientService.asmx?wsdl</wsdl>-->
-                            <wsdl>https://api.mindbodyonline.com/0_5/ClassService.asmx?wsdl</wsdl>
-
+                            <!--convert it separately-->
+                            <wsdl>https://api.mindbodyonline.com/0_5/ClientService.asmx?wsdl</wsdl>
+                            <!--<wsdl>https://api.mindbodyonline.com/0_5/SaleService.asmx?wsdl</wsdl>-->
+                            <!--<wsdl>https://api.mindbodyonline.com/0_5/SiteService.asmx?wsdl</wsdl>-->
+                            <!--<wsdl>https://api.mindbodyonline.com/0_5/ClassService.asmx?wsdl</wsdl>-->
                             <!--
-                            steps for correct conversion after generation:
-                            1) add package info with correct endpoint wsdl namespace to model and service package;
-                            2) add ObjectFactory with both methods from Client and Class services;
-                            3) change all boolean getters from is to get (be attentive to refactoring);
-                            4) change all namespace to correct endpoint wsdl namespace (refactoring option bad - replace good);
-                            5) merge persistence.xml from both generation and move to resources folder;
-                            6) add schema for table annotation and as a first statement for dll creation;
-                            7) Correct all hashcodes and equals with URL strings like - theImageURL = this.getImageURL() == null ? null : Splitter.on("?").split(this.getImageURL()).iterator().next();
+                            WARNING: add new schema mindbody to classes and in dll
+                            @Table(schema = "mindbody", name
+                            to
+                            @Table(schema = "mindbody", name
                             -->
                             <bindingFiles>
-                                <!-- JAX-WS bindings -->
                                 <bindingFile>${basedir}/src/main/wsdl/binding.xml</bindingFile>
-                                <!-- XJC bindings -->
                             </bindingFiles>
                             <extraargs>
                                 <!-- Turns on the hashCode plugin -->
@@ -279,9 +238,8 @@
                                 <extraarg>-xjc-XtoString</extraarg>
                                 <!-- Turns on the Hyperjaxb3 EJB plugin -->
                                 <extraarg>-xjc-Xhyperjaxb3-ejb</extraarg>
-                                <!--<extraarg>-xjc-Xinheritance</extraarg>-->
                                 <extraarg>-xjc-XfixJAXB1058</extraarg>
-                                <extraarg>-xjc-enableIntrospection</extraarg>
+                                <!--<extraarg>-xjc-enableIntrospection</extraarg>-->
                                 <extraarg>-xjc-Xinheritance</extraarg>
                                 <extraarg>-xjc-extension</extraarg>
                                 <extraarg>-xjc-Xannotate</extraarg>
@@ -302,8 +260,18 @@
                         <groupId>org.jvnet.hyperjaxb3</groupId>
                         <artifactId>hyperjaxb3-ejb-plugin</artifactId>
                         <version>${hyperjaxb3-ejb.version}</version>
-
                     </dependency>
+                    <dependency>
+                        <groupId>com.sun.xml.bind</groupId>
+                        <artifactId>jaxb-xjc</artifactId>
+                        <version>2.1.8</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.sun.xml.bind</groupId>
+                        <artifactId>jaxb-impl</artifactId>
+                        <version>2.1.8</version>
+                    </dependency>
+
                 </dependencies>
             </plugin>
 
@@ -315,6 +283,27 @@
                     <source>1.6</source>
                     <target>1.6</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <target>
+                                <move todir="${project.basedir}/src/main/webapp/META-INF"
+                                      overwrite="true">
+                                    <fileset dir="${project.build.sourceDirectory}/META-INF"/>
+                                </move>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
         <!--to allow hbm generation-->
