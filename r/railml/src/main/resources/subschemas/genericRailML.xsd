@@ -9,12 +9,12 @@
     <xs:documentation>Content of this file: XML Schema for railML(R) 2.2 Definition of generic simple types, used by all sub schemas</xs:documentation>
   </xs:annotation>
 
-  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd">
+  <!-- ** WIP ** xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd">
     <xs:annotation>
       <xs:documentation>Portions of this software may use XML schemas Copyright (c) 2009 DCMI, the Dublin Core Metadata Initiative. These are licensed under the Creative Commons 3.0 Attribution license.</xs:documentation>
       <xs:documentation>For further information see: http://dublincore.org/ License link: http://creativecommons.org/licenses/by/3.0/</xs:documentation>
     </xs:annotation>
-  </xs:import>
+  </xs:import -->
 
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd" />
 
@@ -235,14 +235,14 @@
     <xs:complexContent>
       <xs:extension base="rail:tElementWithIDAndName">
         <xs:sequence>
-          <xs:element name="metadata" type="dc:elementContainer" minOccurs="0">
+          <!-- ** WIP ** xs:element name="metadata" type="dc:elementContainer" minOccurs="0">
             <xs:annotation>
               <xs:documentation>subschema-wide flexible collection of Dublin Core metadata based on xs:any according to http://dublincore.org/</xs:documentation>
               <xs:documentation source="http://wiki.railml.org/index.php?title=IS:metadata" />
               <xs:documentation source="http://wiki.railml.org/index.php?title=RS:metadata" />
               <xs:documentation source="http://wiki.railml.org/index.php?title=TT:metadata" />
             </xs:annotation>
-          </xs:element>
+          </xs:element -->
         </xs:sequence>
         <xs:attribute name="version" type="rail:tRailMLVersion">
           <xs:annotation>
@@ -375,11 +375,11 @@
   </xs:simpleType>
 
   <xs:attributeGroup name="anyAttribute">
-    <xs:anyAttribute namespace="##other">
+    <!-- ** WIP ** xs:anyAttribute namespace="##other">
       <xs:annotation>
         <xs:documentation>'any attributes' should be deployed in a foreign namespace</xs:documentation>
       </xs:annotation>
-    </xs:anyAttribute>
+    </xs:anyAttribute-->
   </xs:attributeGroup>
 
   <xs:complexType name="tElementRefInGroup">

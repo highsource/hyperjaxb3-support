@@ -19,11 +19,11 @@
         <xs:documentation source="http://wiki.railml.org/index.php?title=CO:railml" />
       </xs:annotation>
       <xs:sequence>
-        <xs:element name="metadata" type="rail:tMetadata" minOccurs="0">
+        <!-- ** WIP ** xs:element name="metadata" type="rail:tMetadata" minOccurs="0">
           <xs:annotation>
             <xs:documentation source="http://wiki.railml.org/index.php?title=CO:metadata" />
           </xs:annotation>
-        </xs:element>
+        </xs:element -->
         <xs:element ref="rail:infrastructure" minOccurs="0">
           <xs:annotation>
             <xs:documentation>"subschema Infrastructure (IS)" can be outsourced in extra file and imported with xi:include mechanism</xs:documentation>

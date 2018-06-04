@@ -12,12 +12,12 @@
   <xs:include schemaLocation="genericRailML.xsd" />
   <xs:include schemaLocation="railwayUnits.xsd" />
 
-  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd">
+  <!-- ** WIP ** xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd">
     <xs:annotation>
       <xs:documentation>Portions of this software may use XML schemas Copyright (c) 2009 DCMI, the Dublin Core Metadata Initiative. These are licensed under the Creative Commons 3.0 Attribution license.</xs:documentation>
       <xs:documentation>For further information see: http://dublincore.org/ License link: http://creativecommons.org/licenses/by/3.0/</xs:documentation>
     </xs:annotation>
-  </xs:import>
+  </xs:import -->
 
   <xs:complexType name="tTimeSpan">
     <xs:annotation>
@@ -461,7 +461,7 @@
     </xs:attribute>
   </xs:attributeGroup>
 
-  <xs:complexType name="tMetadata">
+  <!-- ** WIP ** xs:complexType name="tMetadata">
     <xs:complexContent>
       <xs:extension base="dc:elementContainer">
         <xs:annotation>
@@ -477,7 +477,7 @@
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
-  </xs:complexType>
+  </xs:complexType -->
 
   <xs:complexType name="tOrganizationalUnits">
     <xs:sequence>
