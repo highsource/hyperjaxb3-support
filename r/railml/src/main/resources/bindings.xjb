@@ -13,7 +13,6 @@
 	</jaxb:globalBindings>
 
 	<jaxb:bindings
-		
 		schemaLocation="subschemas/rollingstockTypes.xsd">
 		<jaxb:bindings
 			node="//xs:schema/xs:attributeGroup[@name='aPropulsion']/xs:attribute[@name='rackTraction']">
