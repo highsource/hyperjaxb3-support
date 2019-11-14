@@ -1,0 +1,3 @@
+17:20:51.335 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 46 bean definitions from location pattern [classpath*:org/jvnet/hyperjaxb3/ejb/jpa2/plugin/applicationContext.xml]
+17:20:51.335 [main] DEBUG org.springframework.core.CollectionFactory - Falling back to plain [java.util.HashSet] for linked set
+17:20:51.335 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 0 bean definitions from location pattern [classpath*:org/jvnet/hyperjaxb3/ejb/jpa2/plugin/custom/applicationContext.xml]
