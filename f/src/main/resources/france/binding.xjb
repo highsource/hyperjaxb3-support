@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jxb:bindings version="1.0" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:hj="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations"
+	xmlns:orm="http://java.sun.com/xml/ns/persistence/orm">
+
+	<jxb:bindings schemaLocation="PublicationSchema.xsd" node="/xs:schema">
+
+		<hj:persistence>
+			<hj:default-entity>
+				<orm:table schema="france" />
+			</hj:default-entity>
+			<hj:default-element-collection>
+				<orm:collection-table schema="france" />
+			</hj:default-element-collection>
+			<hj:default-generated-id>
+				<orm:column name="FRANCE_ID" />
+				<orm:generated-value strategy="SEQUENCE" generator="id-sequence" />
+				<orm:sequence-generator name="id-sequence" sequence-name="id_sequence" schema="france" />
+			</hj:default-generated-id>
+		</hj:persistence>
+
+		<jxb:schemaBindings>
+			<jxb:package name="fr.longer"></jxb:package>
+		</jxb:schemaBindings>
+
+<!-- 		<jxb:bindings node="(*//xs:element[@name='Commentaire'])[1]"> -->
+<!-- 			<hj:basic> -->
+<!-- 				<orm:column length="4000" /> -->
+<!-- 			</hj:basic> -->
+<!-- 		</jxb:bindings> -->
+		<jxb:bindings node="*//xs:element[@name='Motifs']">
+			<hj:basic>
+				<orm:column length="4000" />
+			</hj:basic>
+		</jxb:bindings>
+
+	</jxb:bindings>
+
+</jxb:bindings>

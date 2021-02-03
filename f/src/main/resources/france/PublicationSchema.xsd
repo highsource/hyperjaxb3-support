@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Publications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DatePublication" type="xs:dateTime" />
+        <xs:element name="PublicationDetail" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdRegistre" type="xs:unsignedShort" />
+              <xs:element name="Nature">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Personne physique" />
+                    <xs:enumeration value="Personne morale" />
+                    <xs:enumeration value="Navire" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nom" type="xs:string" />
+              <xs:element name="RegistreDetail" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TypeChamp" type="xs:string" />
+                    <xs:element name="Valeur" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:choice>
+
+                          <!-- TypeChamp commun à toutes les Natures-->
+                          <!-- Si TypeChamp='ALIAS' -->
+                          <xs:sequence>
+                            <xs:element name="Alias" type="xs:string" minOccurs="1" />
+                            <xs:element name="Commentaire" type="xs:string" minOccurs="0" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='LIEU_de_NAISSANCE' OU 'NATIONALITE' OU 'ADRESSE_PP' OU 'ADRESSE_PM'  -->
+                          <xs:sequence>
+                            <xs:element name="Lieu" type="xs:string" minOccurs="0" />
+                            <xs:element name="Adresse" type="xs:string" minOccurs="0" />
+                            <xs:element name="Pays" type="xs:string" minOccurs="0" />
+                            <xs:element name="Commentaire" type="xs:string" minOccurs="0" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='MOTIFS' -->
+                          <xs:sequence>
+                            <xs:element name="Motifs" type="xs:string" minOccurs="1" maxOccurs="1" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='FONDEMENT_JURIDIQUE' -->
+                          <xs:sequence>
+                            <xs:element name="FondementJuridique" type="xs:unsignedShort" minOccurs="1" />
+                            <xs:element name="FondementJuridiqueLabel" type="xs:string" minOccurs="1" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='REFERENCE_UE' -->
+                          <xs:sequence>
+                            <xs:element name="ReferenceUe" type="xs:string" minOccurs="1" />
+                            <xs:element name="Commentaire" type="xs:string" minOccurs="0" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='REFERENCE_ONU' -->
+                          <xs:sequence>
+                            <xs:element name="ReferenceOnu" type="xs:string" minOccurs="1" />
+                            <xs:element name="Commentaire" type="xs:string" minOccurs="0" />
+                          </xs:sequence>
+
+                          <!-- Si Nature Personne physique ou morale -->
+                          <!-- Si TypeChamp='CRYPTOMMONNAIE' -->
+                          <xs:sequence>
+                            <xs:element name="Cryptomonnaie" type="xs:string" minOccurs="1" />
+                            <xs:element name="Commentaire" type="xs:string" minOccurs="0" />
+                          </xs:sequence>
+
+                          <!-- Si Nature Personne morale ou Navire -->
+                          <!-- Si TypeChamp='IDENTIFICATION' -->
+                          <xs:sequence>
+                            <xs:element name="Identification" type="xs:string" minOccurs="1" />
+                            <xs:element name="Commentaire" type="xs:string" minOccurs="0" />
+                          </xs:sequence>
+
+                          <!-- Si Nature Personne physique -->
+                          <!-- Si TypeChamp='PRENOM' -->
+                          <xs:sequence>
+                            <xs:element name="Prenom" type="xs:string" minOccurs="1" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='SEXE' -->
+                          <xs:sequence>
+                            <xs:element name="Sexe" type="xs:string" minOccurs="1" maxOccurs="1" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='DATE_DE_NAISSANCE' -->
+                          <xs:sequence>
+                            <xs:element name="Jour" type="xs:string" minOccurs="0" />
+                            <xs:element name="Mois" type="xs:string" minOccurs="0" />
+                            <xs:element name="Annee" type="xs:unsignedShort" minOccurs="1" />
+                            <xs:element name="Commentaire" type="xs:string" minOccurs="0" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='TITRE' -->
+                          <xs:sequence>
+                            <xs:element name="Titre" type="xs:string" minOccurs="1" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='AUTRE_IDENTITE' -->
+                          <xs:sequence>
+                            <xs:element name="NumeroCarte" type="xs:string" minOccurs="1" />
+                            <xs:element name="Commentaire" type="xs:string" minOccurs="0" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='PASSEPORT' -->
+                          <xs:sequence>
+                            <xs:element name="NumeroPasseport" type="xs:string" minOccurs="1" />
+                            <xs:element name="Commentaire" type="xs:string" minOccurs="0" />
+                          </xs:sequence>
+
+                          <!-- Si Nature Personne morale -->
+                          <!-- Si TypeChamp='TELEPHONE' -->
+                          <xs:sequence>
+                            <xs:element name="Telephone" type="xs:string" minOccurs="1" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='SITE_INTERNET' -->
+                          <xs:sequence>
+                            <xs:element name="SiteInternet" type="xs:string" minOccurs="1" />
+                          </xs:sequence>
+                          <!-- Si TypeChamp='COURRIEL' -->
+                          <xs:sequence>
+                            <xs:element name="Courriel" type="xs:string" minOccurs="1" />
+                          </xs:sequence>
+
+                          <!-- Si Nature Navire -->
+                          <!-- Si TypeChamp='NUMERO_OMI' -->
+                          <xs:sequence>
+                            <xs:element name="NumeroOMI" type="xs:string" minOccurs="1" maxOccurs="1" />
+                          </xs:sequence>
+
+                        </xs:choice>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
